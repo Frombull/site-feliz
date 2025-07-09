@@ -1,0 +1,18 @@
+{
+  "HomePage": {
+    "title": "Marco Di Toro",
+    "subtitle": "Técnico em Telecomunicações | Engenheiro de Software",
+    "aboutMe": "Sobre Mim",
+    "aboutMeP1": "Sou técnico em telecomunicações, apaixonado por desenvolvimento de software. Estou sempre adquirindo conhecimento em diversas áreas e aplicando esse aprendizado em meus projetos pessoais.",
+    "aboutMeP2": "Atualmente, procuro vaga como estagiário pelo Inatel, para adquirir mais experiência no mercado de trabalho e ser efetivado como engenheiro de software.",
+    "professionalExperience": "Experiência Profissional",
+    "projects": "Projetos",
+    "interestsAndSkills": "Interesses & Skills",
+    "education": "Educação",
+    "footer": "Desenvolvido com Next.js e Tailwind CSS :)"
+  },
+  "DashboardPage": {
+  },
+  "LoginPage": {
+  }
+}

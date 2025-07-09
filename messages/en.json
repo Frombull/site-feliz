@@ -1,0 +1,14 @@
+{
+    "HomePage": {
+      "title": "Marco Di Toro",
+      "subtitle": "Telecommunications Technician | Software Engineer",
+      "aboutMe": "About Me",
+      "aboutMeP1": "I am a telecommunications technician, passionate about software development. I am always acquiring knowledge in different areas and applying this learning in my personal projects.",
+      "aboutMeP2": "Currently, I am looking for an internship through Inatel to gain more experience in the job market and to be hired as a software engineer.",
+      "professionalExperience": "Professional Experience",
+      "projects": "Projects",
+      "interestsAndSkills": "Interests & Skills",
+      "education": "Education",
+      "footer": "Developed with Next.js and Tailwind CSS :)"
+    }
+  }
