@@ -56,7 +56,7 @@ export default function Home() {
         <header className="text-center mb-12">
             <div className="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg bg-gradient-to-tr from-blue-400 to-purple-500">
             <Image 
-                src="/IMG_Marco.png" 
+                src="./IMG_Marco.png" 
                 alt="Foto de Perfil" 
                 width={256}
                 height={256}
