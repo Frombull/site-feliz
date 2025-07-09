@@ -1,8 +1,7 @@
 'use client';
 
-import { usePathname } from "next/navigation";
+import { usePathname, Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher/LanguageSwitcher";
-import Link from "next/link";
 
 export function Header() {
     const pathname = usePathname();
@@ -22,7 +21,7 @@ export function Header() {
                     <ul className="flex items-center gap-2">
                         <li>
                             <Link 
-                                href={'/'} 
+                                href="/" 
                                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                                     pathname === '/' 
                                     ? 'bg-zinc-800 text-white' 
@@ -34,7 +33,7 @@ export function Header() {
                         </li>
                         <li>
                             <Link 
-                                href={'/dashboard'}
+                                href="/dashboard"
                                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                                     pathname === '/dashboard' 
                                     ? 'bg-zinc-800 text-white' 
@@ -46,7 +45,7 @@ export function Header() {
                         </li>
                         <li>
                             <Link 
-                                href={'/login'}
+                                href="/login"
                                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                                     pathname === '/login' 
                                     ? 'bg-zinc-800 text-white' 
