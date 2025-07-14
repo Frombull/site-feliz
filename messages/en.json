@@ -1,7 +1,16 @@
 {
+    "Header": {
+      "about": "About",
+      "experience": "Experience",
+      "projects": "Projects",
+      "skills": "Skills",
+      "education": "Education",
+      "contact": "Contact"
+    },
     "HomePage": {
       "title": "Marco Di Toro",
       "subtitle": "Telecommunications Technician | Software Engineer",
+      "profilePictureAlt": "Profile Picture",
       "aboutMe": "About Me",
       "aboutMeP1": "I am a telecommunications technician, passionate about software development. I am always acquiring knowledge in different areas and applying this learning in my personal projects.",
       "aboutMeP2": "Currently, I am looking for an internship through Inatel to gain more experience in the job market and to be hired as a software engineer.",
@@ -9,6 +18,64 @@
       "projects": "Projects",
       "interestsAndSkills": "Interests & Skills",
       "education": "Education",
-      "footer": "Developed with Next.js and Tailwind CSS :)"
+      "contact": "Contact",
+      "linkedin": "LinkedIn",
+      "footer": "Developed with Next.js and Tailwind CSS :)",
+      "experience1": {
+        "role": "Intern",
+        "company": "Centro de Pesquisas Avançadas Wernher von Braun",
+        "duration": "04/2025 - Current",
+        "description": "Full-stack development using ABP framework with C#. Responsible for creating front-end components with Blazor and Blazorise, and developing APIs and back-end logic. Using SQL Server for database management and Postman for API testing."
+      },
+      "experience2": {
+        "role": "Intern",
+        "company": "WatchGuard Technologies",
+        "duration": "09/2021 - 06/2022 (8 months)",
+        "description": "Worked with AWS microservices and Python, implementing solutions with Lambda, SNS, SQS, S3, Cloudfront, among others. Acquired knowledge about agile methodologies (Scrum) while participating in an international team. Gained extensive hands-on experience, providing me with a solid understanding of software development in an agile professional environment."
+      },
+      "project1": {
+        "title": "FETIN 2025: Pixelforge",
+        "description": "An educational website for Linear Algebra and Computer Graphics students to visualize concepts seen in class in a practical and interactive way."
+      },
+      "project2": {
+        "title": "PROJETE VRTL 2020: Quality control with machine learning",
+        "description": "Responsible for the 3rd year technical project. Developed for production line, with the ability to identify, separate and catalog products in real time, using a trained neural network."
+      },
+      "project3": {
+        "title": "PROJETE 2019: Baropodometer",
+        "description": "2nd year technical project. A mat was made capable of identifying the user's type of step and suggesting possible corrections for it."
+      },
+      "project4": {
+        "title": "PROJETE 2018: Automatic gate with wi-fi",
+        "description": "1st year technical project. Garage door, capable of automatically opening and closing when detecting the user's presence on their local wi-fi network."
+      },
+      "skills": {
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "qaAndTesting": "QA & Testing",
+        "devopsAndCloud": "DevOps & Cloud",
+        "unitTesting": "Unit Testing"
+      },
+      "education1": {
+        "degree": "Software Engineering",
+        "institution": "Instituto Nacional de Telecomunicações - Inatel",
+        "period": "01/2021 – Current"
+      },
+      "education2": {
+        "degree": "Telecommunications Technician",
+        "institution": "Escola Técnica de Eletrônica Francisco Moreira da Costa",
+        "period": "01/2018 - 12/2020"
+      },
+      "contactSection": {
+        "title": "Contact",
+        "subtitle": "Let's work together!",
+        "description": "I am always open to new opportunities and interesting projects. Contact me through any of the channels below.",
+        "downloadTitle": "Resume Download",
+        "downloadDescription": "Download a PDF version of my resume for future reference.",
+        "downloadButton": "Download CV (PDF)"
+      },
+      "linkedinQRCodeAlt": "QR Code for Marco Di Toro's LinkedIn",
+      "linkedinQRCodeTitle": "Visit Marco Di Toro's LinkedIn",
+      "logoAlt": "logo"
     }
   }
