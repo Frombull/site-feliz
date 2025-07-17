@@ -20,7 +20,6 @@
     "education": "Educação",
     "contact": "Contato",
     "linkedin": "LinkedIn",
-    "footer": "Desenvolvido com Next.js e Tailwind CSS :)",
     "experience1": {
       "role": "Estagiário",
       "company": "Centro de Pesquisas Avançadas Wernher von Braun",
@@ -70,16 +69,106 @@
       "title": "Contato",
       "subtitle": "Vamos trabalhar juntos!",
       "description": "Estou sempre aberto a novas oportunidades e projetos interessantes. Entre em contato comigo através de qualquer um dos canais abaixo.",
-      "downloadTitle": "Download do Currículo",
-      "downloadDescription": "Baixe uma versão em PDF do meu currículo para referência futura.",
-      "downloadButton": "Download CV (PDF)"
+      "downloadTitle": "Baixe meu currículo!",
+      "downloadDescription": "Baixe uma versão em PDF de meu currículo para referências futuras.",
+      "downloadButton": "Download (PDF)"
     },
     "linkedinQRCodeAlt": "QR Code para o LinkedIn de Marco Di Toro",
     "linkedinQRCodeTitle": "Visitar LinkedIn de Marco Di Toro",
     "logoAlt": "logo"
   },
-  "DashboardPage": {
+  "footer": {
+    "sourceCode": "Código Fonte",
+    "privacyPolicy": "Política de Privacidade",
+    "termsOfService": "Termos de Serviço",
+    "cookiesPolicy": "Política de Cookies"
   },
-  "LoginPage": {
+  "PrivacyPolicy": {
+    "title": "Política de Privacidade",
+    "introduction": "Esta Política de Privacidade descreve como suas informações pessoais são coletadas, usadas e compartilhadas quando você visita este site.",
+    "informationWeCollect": {
+      "title": "Informações que Coletamos",
+      "p1": "Como este é um site de portfólio simples, não coletamos ativamente informações pessoais dos visitantes. Podemos coletar informações não pessoais que seu navegador envia, como seu endereço IP, tipo de navegador e as páginas que você visita."
+    },
+    "howWeUseYourInformation": {
+      "title": "Como Usamos Suas Informações",
+      "p1": "Qualquer informação não pessoal coletada é usada exclusivamente com o propósito de analisar o tráfego do site e melhorar a experiência do usuário. Não vendemos ou compartilhamos essas informações com terceiros."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "p1": "Usamos cookies para melhorar sua experiência. Você pode optar por desativar os cookies nas configurações do seu navegador, mas isso pode afetar a funcionalidade do site."
+    },
+    "thirdPartyServices": {
+      "title": "Serviços de Terceiros",
+      "p1": "Este site não utiliza serviços de terceiros que coletam informações pessoais."
+    },
+    "security": {
+      "title": "Segurança",
+      "p1": "Tomamos precauções razoáveis para proteger suas informações. No entanto, nenhum método de transmissão pela Internet é 100% seguro."
+    },
+    "changesToThisPolicy": {
+      "title": "Alterações a Esta Política",
+      "p1": "Podemos atualizar esta política de privacidade de tempos em tempos. Iremos notificá-lo sobre quaisquer alterações, publicando a nova política nesta página."
+    },
+    "contactUs": {
+      "title": "Contato",
+      "p1": "Se você tiver alguma dúvida sobre esta Política de Privacidade, entre em contato comigo."
+    }
+  },
+  "TermsOfService": {
+    "title": "Termos de Serviço",
+    "introduction": "Ao acessar este site, você concorda em cumprir estes termos de serviço, todas as leis e regulamentos aplicáveis ​​e concorda que é responsável pelo cumprimento de quaisquer leis locais aplicáveis.",
+    "useOfWebsite": {
+      "title": "Uso do Site",
+      "p1": "Este site é para seu uso pessoal e não comercial. Você não pode modificar, copiar, distribuir, transmitir, exibir, executar, reproduzir, publicar, licenciar, criar trabalhos derivados, transferir ou vender qualquer informação obtida neste site."
+    },
+    "intellectualProperty": {
+      "title": "Propriedade Intelectual",
+      "p1": "Todo o conteúdo deste site, incluindo textos, gráficos, logotipos e imagens, é propriedade do proprietário do site e está protegido por leis de propriedade intelectual."
+    },
+    "disclaimer": {
+      "title": "Isenção de Responsabilidade",
+      "p1": "Os materiais neste site são fornecidos 'como estão'. O proprietário do site não oferece garantias, expressas ou implícitas, e por meio deste isenta e nega todas as outras garantias."
+    },
+    "limitationOfLiability": {
+      "title": "Limitação de Responsabilidade",
+      "p1": "Em nenhum caso o proprietário do site será responsável por quaisquer danos decorrentes do uso ou da incapacidade de usar os materiais neste site."
+    },
+    "governingLaw": {
+      "title": "Lei Aplicável",
+      "p1": "Estes termos e condições são regidos e interpretados de acordo com as leis da jurisdição do proprietário do site, e você se submete irrevogavelmente à jurisdição exclusiva dos tribunais nesse Estado ou localidade."
+    },
+    "changesToTheseTerms": {
+      "title": "Alterações a Estes Termos",
+      "p1": "O proprietário do site pode revisar estes termos de serviço para seu site a qualquer momento, sem aviso prévio."
+    },
+    "contactUs": {
+      "title": "Contato",
+      "p1": "Se você tiver alguma dúvida sobre estes Termos de Serviço, entre em contato comigo."
+    }
+  },
+  "CookiesPolicy": {
+    "title": "Política de Cookies",
+    "introduction": "Esta Política de Cookies explica o que são cookies и como os usamos neste site.",
+    "whatAreCookies": {
+      "title": "O que são Cookies?",
+      "p1": "Cookies são pequenos arquivos de texto que são colocados no seu computador ou dispositivo móvel quando você visita um site. Eles são amplamente utilizados para fazer os sites funcionarem de forma mais eficiente e para fornecer informações aos proprietários do site."
+    },
+    "howWeUseCookies": {
+      "title": "Como Usamos os Cookies",
+      "p1": "Usamos cookies para melhorar a experiência do usuário em nosso site. Por exemplo, usamos cookies para lembrar sua preferência de idioma. Não usamos cookies para fins de rastreamento ou publicidade."
+    },
+    "managingCookies": {
+      "title": "Gerenciando Cookies",
+      "p1": "Você pode controlar e/ou excluir os cookies como desejar. Você pode excluir todos os cookies que já estão no seu computador e pode configurar a maioria dos navegadores para impedir que eles sejam colocados. Se você fizer isso, no entanto, talvez seja necessário ajustar manualmente algumas preferências sempre que visitar um site, e alguns serviços e funcionalidades podem não funcionar."
+    },
+    "changesToThisPolicy": {
+      "title": "Alterações a Esta Política",
+      "p1": "Podemos atualizar nossa Política de Cookies de tempos em tempos. Iremos notificá-lo sobre quaisquer alterações, publicando a nova Política de Cookies nesta página."
+    },
+    "contactUs": {
+      "title": "Contato",
+      "p1": "Se você tiver alguma dúvida sobre nosso uso de cookies, entre em contato comigo."
+    }
   }
 }

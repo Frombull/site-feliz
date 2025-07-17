@@ -1,6 +1,7 @@
-import { Mail, Phone, Linkedin, Briefcase, Code, GraduationCap, Star, User, Download, Github, ExternalLink, Award, Calendar } from 'lucide-react';
+import { Mail, Phone, Linkedin, Briefcase, Code, GraduationCap, Star, User, Download, Github, ExternalLink, Award, Calendar, ArrowUpCircle } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { Footer } from '@/components/Footer/Footer';
 
 const IconText = ({ icon, children }) => (
   <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
@@ -117,6 +118,13 @@ const CertificateCard = ({ title, issuer, date, credentialId, credentialUrl }) =
 
 export default function Home() {
   const t = useTranslations('HomePage');
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <div className="bg-gray-100 dark:bg-gray-900 min-h-screen font-sans">
@@ -306,35 +314,8 @@ export default function Home() {
                     </a>
                 </div>
             </SectionCard>
-          </div>
-        </div>
-        
-        {/* --- Seção de Contato --- */}
-        <SectionCard title={t('contactSection.title')} icon={<Mail className="text-blue-500" />} id="contact">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-4">
-              <h3 className="font-semibold text-gray-800 dark:text-white mb-4">{t('contactSection.subtitle')}</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                {t('contactSection.description')}
-              </p>
-              <div className="space-y-3">
-                <IconText icon={<Mail size={18} />}>
-                  <a href="mailto:marco.renzo@ges.inatel.br" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    marco.renzo@ges.inatel.br
-                  </a>
-                </IconText>
-                <IconText icon={<Phone size={18} />}>
-                  <a href="tel:+5535991332571" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    +55 (35) 99133-2571
-                  </a>
-                </IconText>
-                <IconText icon={<Linkedin size={18} />}>
-                  <a href="https://linkedin.com/in/marcoditoro" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    linkedin.com/in/marcoditoro
-                  </a>
-                </IconText>
-              </div>
-            </div>
+
+            {/* --- Download CV --- */}
             <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
               <h4 className="font-semibold text-gray-800 dark:text-white mb-4">{t('contactSection.downloadTitle')}</h4>
               <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
@@ -348,13 +329,9 @@ export default function Home() {
               </a>
             </div>
           </div>
-        </SectionCard>
+        </div>
+        <Footer />
         
-        <footer className="text-center mt-12 py-4">
-            <p className="text-gray-500 dark:text-gray-400 text-sm">
-                {t('footer')}
-            </p>
-        </footer>
       </main>
     </div>
   );
