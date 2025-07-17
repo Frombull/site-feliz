@@ -59,7 +59,7 @@ export function Header() {
                         <li>
                             <button 
                                 onClick={() => scrollToSection('about')}
-                                className="px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                                className="cursor-pointer px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                             >
                                 {t('about')}
                             </button>
@@ -67,7 +67,7 @@ export function Header() {
                         <li>
                             <button 
                                 onClick={() => scrollToSection('experience')}
-                                className="px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                                className="cursor-pointer px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                             >
                                 {t('experience')}
                             </button>
@@ -75,7 +75,7 @@ export function Header() {
                         <li>
                             <button 
                                 onClick={() => scrollToSection('projects')}
-                                className="px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                                className="cursor-pointer px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                             >
                                 {t('projects')}
                             </button>
@@ -83,23 +83,15 @@ export function Header() {
                         <li>
                             <button 
                                 onClick={() => scrollToSection('skills')}
-                                className="px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                                className="cursor-pointer px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                             >
                                 {t('skills')}
                             </button>
                         </li>
                         <li>
                             <button 
-                                onClick={() => scrollToSection('certificates')}
-                                className="px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                            >
-                                {t('certificates')}
-                            </button>
-                        </li>
-                        <li>
-                            <button 
                                 onClick={() => scrollToSection('education')}
-                                className="px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                                className="cursor-pointer px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                             >
                                 {t('education')}
                             </button>
@@ -107,7 +99,7 @@ export function Header() {
                         <li>
                             <button 
                                 onClick={() => scrollToSection('contact')}
-                                className="px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                                className="cursor-pointer px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                             >
                                 {t('contact')}
                             </button>

@@ -10,7 +10,7 @@ const IconText = ({ icon, children }) => (
 );
 
 const SectionCard = ({ title, icon, children, id }) => (
-  <div id={id} className="bg-white dark:bg-gray-800/50 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-500 animate-fade-in-up">
+  <div id={id} className="bg-white dark:bg-gray-800/50 mb-4 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-500 animate-fade-in-up">
     <div className="p-6">
       <div className="flex items-center gap-3 mb-4">
         {icon}
@@ -120,7 +120,7 @@ export default function Home() {
 
   return (
     <div className="bg-gray-100 dark:bg-gray-900 min-h-screen font-sans">
-      <main className="container mx-auto p-4 md:p-8 pt-24">
+      <main className="container mx-auto p-4 pt-24 md:pt-24 md:px-8">
         {/* --- Cabeçalho --- */}
         <header className="text-center mb-12 animate-fade-in">
             <div className="w-32 h-32 rounded-full mx-auto mb-6 shadow-lg bg-gradient-to-tr from-blue-400 to-purple-500 hover:scale-105 transition-transform duration-300">
@@ -340,10 +340,12 @@ export default function Home() {
               <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
                 {t('contactSection.downloadDescription')}
               </p>
-              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2">
-                <Download size={18} />
-                {t('contactSection.downloadButton')}
-              </button>
+              <a href="/CV_Marco_Di_Toro.pdf" download="CV_Marco_Di_Toro.pdf" className="w-full">
+                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2">
+                  <Download size={18} />
+                  {t('contactSection.downloadButton')}
+                </button>
+              </a>
             </div>
           </div>
         </SectionCard>
