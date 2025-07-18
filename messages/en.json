@@ -78,10 +78,18 @@
       "logoAlt": "logo"
     },
     "footer": {
+      "navigation": "Navigation",
+      "connect": "Connect",
       "sourceCode": "Source Code",
       "privacyPolicy": "Privacy Policy",
       "termsOfService": "Terms of Service",
-      "cookiesPolicy": "Cookies Policy"
+      "cookiesPolicy": "Cookies Policy",
+      "developedWith": "Developed with Next.js and Tailwind CSS.",
+      "copyright": "All rights reserved.",
+      "about": "About",
+      "experience": "Experience",
+      "projects": "Projects",
+      "contact": "Contact"
     },
     "PrivacyPolicy": {
       "title": "Privacy Policy",

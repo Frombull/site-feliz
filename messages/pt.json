@@ -81,7 +81,15 @@
     "sourceCode": "Código Fonte",
     "privacyPolicy": "Política de Privacidade",
     "termsOfService": "Termos de Serviço",
-    "cookiesPolicy": "Política de Cookies"
+    "cookiesPolicy": "Política de Cookies",
+    "developedWith": "Desenvolvido com Next.js e Tailwind CSS.",
+    "copyright": "Todos os direitos reservados.",
+    "navigation": "Navegação",
+    "connect": "Conecte-se",
+    "about": "Sobre",
+    "experience": "Experiência",
+    "projects": "Projetos",
+    "contact": "Contato"
   },
   "PrivacyPolicy": {
     "title": "Política de Privacidade",
