@@ -40,7 +40,7 @@ const InputWithIcon = ({ icon, type, placeholder, id, value, onChange }: { icon:
 function ResetPasswordForm() {
     const locale = useLocale();
     const searchParams = useSearchParams();
-    const token = searchParams.get('token');
+    const token = searchParams?.get('token');
 
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -136,7 +136,7 @@ function ResetPasswordForm() {
 
 export default function ResetPasswordPage() {
   const locale = useLocale();
-  
+
   return (
     <div className="bg-gray-100 dark:bg-gray-900 min-h-screen font-sans flex items-center justify-center">
         <main className="container mx-auto p-4 md:p-8 flex justify-center">
