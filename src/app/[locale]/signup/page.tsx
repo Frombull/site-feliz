@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail, Lock, LogIn } from 'lucide-react';
+import { Mail, Lock, UserPlus } from 'lucide-react';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -37,20 +37,29 @@ const InputWithIcon = ({ icon, type, placeholder, id, value, onChange }: { icon:
 );
 
 
-export default function LoginPage() {
+export default function SignupPage() {
     const locale = useLocale();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
     const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setError('');
+        setSuccess('');
+
+        if (password !== confirmPassword) {
+            setError('As senhas não coincidem.');
+            return;
+        }
+
         setLoading(true);
 
         try {
-            const res = await fetch('/api/login', {
+            const res = await fetch('/api/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -63,8 +72,10 @@ export default function LoginPage() {
             if (!res.ok) {
                 setError(data.error || 'Ocorreu um erro.');
             } else {
-                // Login bem-sucedido, redirecionar para o dashboard
-                window.location.href = `/${locale}/dashboard`;
+                setSuccess('Conta criada com sucesso! Você será redirecionado para o login.');
+                setTimeout(() => {
+                    window.location.href = `/${locale}/login`;
+                }, 2000);
             }
         } catch (error) {
             setError('Ocorreu um erro de rede.');
@@ -77,9 +88,10 @@ export default function LoginPage() {
     <div className="bg-gray-100 dark:bg-gray-900 min-h-screen font-sans flex items-center justify-center">
       <main className="container mx-auto p-4 md:p-8 flex justify-center">
         <div className="w-full max-w-md">
-           <SectionCard title="Login" icon={<LogIn className="text-blue-500" />}>
+           <SectionCard title="Criar Conta" icon={<UserPlus className="text-blue-500" />}>
                 <form className="space-y-6" onSubmit={handleSubmit}>
                     {error && <p className="text-red-500 text-center">{error}</p>}
+                    {success && <p className="text-green-500 text-center">{success}</p>}
                     {/* --- Email --- */}
                     <InputWithIcon 
                         icon={<Mail size={16} />}
@@ -95,28 +107,34 @@ export default function LoginPage() {
                         icon={<Lock size={16} />}
                         type="password"
                         id="password-input"
-                        placeholder="Password"
+                        placeholder="Senha"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
 
-                    {/* --- Login button --- */}
+                    {/* --- Confirm Password --- */}
+                    <InputWithIcon 
+                        icon={<Lock size={16} />}
+                        type="password"
+                        id="confirm-password-input"
+                        placeholder="Confirmar Senha"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                    />
+
+                    {/* --- Signup button --- */}
                     <button 
                         type="submit"
                         className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800 transition-colors duration-300 disabled:opacity-50"
                         disabled={loading}
                     >
-                        {loading ? 'Entrando...' : 'Entrar'}
+                        {loading ? 'Criando...' : 'Criar conta'}
                     </button>
 
                     {/* --- Links --- */}
                     <div className="text-sm text-center font-medium text-gray-500 dark:text-gray-400">
-                        <Link href={`/${locale}/forgot-password`} className="text-blue-600 hover:underline dark:text-blue-400">
-                            Esqueceu a senha?
-                        </Link>
-                        <span className="mx-2">|</span>
-                         <Link href={`/${locale}/signup`} className="text-blue-600 hover:underline dark:text-blue-400">
-                            Criar uma conta
+                         <Link href={`/${locale}/login`} className="text-blue-600 hover:underline dark:text-blue-400">
+                            Já tem uma conta? Faça login
                         </Link>
                     </div>
                 </form>
@@ -130,4 +148,4 @@ export default function LoginPage() {
       </main>
     </div>
   );
-}
+} 
