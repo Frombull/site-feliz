@@ -1,24 +1,23 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient } from '../../src/generated/prisma';
+import { NextRequest, NextResponse } from 'next/server'
+import { PrismaClient } from '@prisma/client';
 import nodemailer from 'nodemailer';
 import crypto from 'crypto';
 
 const prisma = new PrismaClient();
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method !== 'POST') return res.status(405).end();
-
-    const { email } = req.body;
+export async function POST(req: NextRequest) {
+    const { email } = await req.json()
 
     if (!email) {
-        return res.status(400).json({ error: 'O e-mail é obrigatório.' });
+        return NextResponse.json({ error: 'O e-mail é obrigatório.' }, { status: 400 })
     }
+
 
     const user = await prisma.user.findUnique({ where: { email } });
 
     if (!user) {
-        // Por segurança, não revele que o usuário não existe.
-        return res.status(200).json({ message: 'Se um usuário com esse e-mail existir, um link de redefinição de senha será enviado.' });
+        // Não revele que o usuário não existe
+        return NextResponse.json({ message: 'Se um usuário com esse e-mail existir, um link de redefinição de senha será enviado.' }, { status: 200 })
     }
 
     // Gerar token
@@ -36,9 +35,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Enviar e-mail
     try {
-        const resetURL = `${req.headers.origin}/reset-password?token=${resetToken}`;
+        const resetURL = `${req.headers.get('origin')}/reset-password?token=${resetToken}`;
 
-        // Usar Ethereal para teste
+        // Ethereal p teste
         let testAccount = await nodemailer.createTestAccount();
         const transporter = nodemailer.createTransport({
             host: 'smtp.ethereal.email',
@@ -62,7 +61,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         const message = `Um e-mail foi enviado para ${user.email} com mais instruções. Por favor, verifique seu e-mail. Preview URL: ${nodemailer.getTestMessageUrl(info)}`
         
-        return res.status(200).json({ message });
+        return NextResponse.json({ message }, { status: 200 })
 
     } catch (err) {
         await prisma.user.update({
@@ -72,6 +71,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 resetPasswordTokenExpiry: null,
             },
         });
-        return res.status(500).json({ error: 'Erro ao enviar o e-mail.' });
+        return NextResponse.json({ error: 'Erro ao enviar o e-mail.' }, { status: 500 })
     }
 } 

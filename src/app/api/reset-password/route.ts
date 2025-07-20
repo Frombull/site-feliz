@@ -1,17 +1,16 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient } from '../../src/generated/prisma';
+
+import { PrismaClient } from '@prisma/client';
 import crypto from 'crypto';
 import bcrypt from 'bcrypt';
+import { NextRequest, NextResponse } from 'next/server'
 
 const prisma = new PrismaClient();
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method !== 'POST') return res.status(405).end();
-
-    const { token, password } = req.body;
+export async function POST(req: NextRequest) {
+    const { token, password } = await req.json()
 
     if (!token || !password) {
-        return res.status(400).json({ error: 'Token e nova senha são obrigatórios.' });
+        return NextResponse.json({ error: 'Token e nova senha são obrigatórios.' }, { status: 400 })
     }
 
     // Hash the received token to compare with the one in the database
@@ -27,7 +26,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     if (!user) {
-        return res.status(400).json({ error: 'Token inválido ou expirado.' });
+        return NextResponse.json({ error: 'Token inválido ou expirado.' }, { status: 400 })
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -42,5 +41,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         },
     });
 
-    return res.status(200).json({ message: 'Senha redefinida com sucesso.' });
+    return NextResponse.json({ message: 'Senha redefinida com sucesso.' }, { status: 200 })
 } 
