@@ -5,7 +5,10 @@
       "projects": "Projects",
       "skills": "Skills",
       "education": "Education",
-      "contact": "Contact"
+      "contact": "Contact",
+      "login": "Login",
+      "logout": "Logout",
+      "profile": "Profile"
     },
     "HomePage": {
       "title": "Marco Di Toro",
@@ -178,5 +181,13 @@
         "title": "Contact Us",
         "p1": "If you have any questions about our use of cookies, please contact me."
       }
+    },
+    "Profile": {
+      "title": "My Profile",
+      "name": "Name",
+      "image": "Profile Picture",
+      "save": "Save Changes",
+      "saving": "Saving...",
+      "loading": "Loading..."
     }
   }

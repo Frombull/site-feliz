@@ -3,16 +3,21 @@
 import { usePathname, Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher/LanguageSwitcher";
 import { useTranslations } from 'next-intl';
-import { Moon, Sun } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { Moon, Sun, User as UserIcon, LogOut } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { useSession, signOut } from "next-auth/react";
+import Image from 'next/image';
 
 export function Header() {
     const pathname = usePathname();
     const t = useTranslations('Header');
     const [darkMode, setDarkMode] = useState(false);
+    const { data: session } = useSession();
+    const [menuOpen, setMenuOpen] = useState(false);
+    const menuRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        // Check for saved theme preference or default to system preference
+        // Saved theme preference or default to system preference
         const savedTheme = localStorage.getItem('theme');
         const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         
@@ -24,6 +29,19 @@ export function Header() {
             document.documentElement.classList.remove('dark');
         }
     }, []);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+                setMenuOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [menuRef]);
 
     const toggleDarkMode = () => {
         const newDarkMode = !darkMode;
@@ -119,6 +137,46 @@ export function Header() {
                     </button>
 
                     <LanguageSwitcher />
+
+                    {session ? (
+                        <div className="relative" ref={menuRef}>
+                            <button onClick={() => setMenuOpen(!menuOpen)} className="flex items-center gap-2 rounded-full p-1 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                                <Image 
+                                    src={session.user?.image || '/profile_picture.png'} 
+                                    alt="User profile" 
+                                    width={32} 
+                                    height={32} 
+                                    className="rounded-full"
+                                />
+                                {session.user?.name && (
+                                    <span className="hidden sm:inline text-sm font-medium text-gray-700 dark:text-gray-200 pr-2">
+                                        {session.user.name}
+                                    </span>
+                                )}
+                            </button>
+                            {menuOpen && (
+                                <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-50">
+                                    <div className="px-4 py-2 text-sm text-gray-700 dark:text-gray-200">
+                                        <p className="font-semibold">{session.user?.name || 'User'}</p>
+                                        <p className="text-xs text-gray-500 truncate">{session.user?.email}</p>
+                                    </div>
+                                    <div className="border-t border-gray-200 dark:border-gray-700"></div>
+                                    <Link href="/profile" className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                        <UserIcon size={16} />
+                                        {t('profile')}
+                                    </Link>
+                                    <button onClick={() => signOut({ callbackUrl: '/' })} className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                        <LogOut size={16} />
+                                        {t('logout')}
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        <Link href="/login" className="px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                            {t('login')}
+                        </Link>
+                    )}
                 </div>
             </div>
         </header>

@@ -6,10 +6,10 @@ import { NextRequest, NextResponse } from 'next/server'
 const prisma = new PrismaClient()
 
 export async function POST(req: NextRequest) {
-  const { email, password } = await req.json()
-
-  if (!email || !password) {
-    return NextResponse.json({ error: 'Email e senha são obrigatórios.' }, { status: 400 })
+  const { name, email, password } = await req.json()
+ // TODO translate
+  if (!name || !email || !password) {
+    return NextResponse.json({ error: 'Nome, email e senha são obrigatórios.' }, { status: 400 })
   }
 
   const existing = await prisma.user.findUnique({ where: { email } })
@@ -20,10 +20,11 @@ export async function POST(req: NextRequest) {
   const hashedPassword = await bcrypt.hash(password, 10) // 10 salt rounds
   const user = await prisma.user.create({
     data: {
+      name,
       email,
       password: hashedPassword,
     },
   })
 
-  return NextResponse.json({ id: user.id, email: user.email }, { status: 201 })
+  return NextResponse.json({ id: user.id, name: user.name, email: user.email }, { status: 201 })
 }

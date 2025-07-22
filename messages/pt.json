@@ -3,9 +3,20 @@
     "about": "Sobre",
     "experience": "Experiência",
     "projects": "Projetos",
-    "skills": "Skills",
-    "education": "Educação",
-    "contact": "Contato"
+    "skills": "Habilidades",
+    "education": "Formação",
+    "contact": "Contato",
+    "login": "Entrar",
+    "logout": "Sair",
+    "profile": "Perfil"
+  },
+  "Profile": {
+    "title": "Meu Perfil",
+    "name": "Nome",
+    "image": "Foto de Perfil",
+    "save": "Salvar Alterações",
+    "saving": "Salvando...",
+    "loading": "Carregando..."
   },
   "HomePage": {
     "title": "Marco Di Toro",

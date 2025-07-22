@@ -4,6 +4,8 @@ import { Mail, Lock, LogIn } from 'lucide-react';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import { useState } from 'react';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 const SectionCard = ({ title, icon, children }: { title: string, icon: React.ReactNode, children: React.ReactNode }) => (
   <div className="bg-white dark:bg-gray-800/50 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
@@ -39,6 +41,7 @@ const InputWithIcon = ({ icon, type, placeholder, id, value, onChange }: { icon:
 
 export default function LoginPage() {
     const locale = useLocale();
+    const router = useRouter();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -49,27 +52,18 @@ export default function LoginPage() {
         setError('');
         setLoading(true);
 
-        try {
-            const res = await fetch('/api/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, password }),
-            });
+        const result = await signIn('credentials', {
+            redirect: false,
+            email,
+            password,
+        });
 
-            const data = await res.json();
-
-            if (!res.ok) {
-                setError(data.error || 'Ocorreu um erro.');
-            } else {
-                // Login bem-sucedido, redirecionar para o dashboard
-                window.location.href = `/${locale}/dashboard`;
-            }
-        } catch (error) {
-            setError('Ocorreu um erro de rede.');
-        } finally {
+        if (result?.error) {
+            setError('Credenciais inválidas. Verifique seu e-mail e senha.');
             setLoading(false);
+        } else {
+            // Sucesso, redireciona para o dashboard
+            router.push(`/${locale}/dashboard`);
         }
     };
 

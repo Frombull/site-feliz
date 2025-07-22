@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail, Lock, UserPlus } from 'lucide-react';
+import { Mail, Lock, UserPlus, User } from 'lucide-react';
 import { useLocale } from 'next-intl';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -39,6 +39,7 @@ const InputWithIcon = ({ icon, type, placeholder, id, value, onChange }: { icon:
 
 export default function SignupPage() {
     const locale = useLocale();
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -64,7 +65,7 @@ export default function SignupPage() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ name, email, password }),
             });
 
             const data = await res.json();
@@ -92,6 +93,15 @@ export default function SignupPage() {
                 <form className="space-y-6" onSubmit={handleSubmit}>
                     {error && <p className="text-red-500 text-center">{error}</p>}
                     {success && <p className="text-green-500 text-center">{success}</p>}
+                    {/* --- Username --- */}
+                    <InputWithIcon
+                        icon={<User size={16} />}
+                        type="text"
+                        id="name-input"
+                        placeholder="Nome de usuário"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
                     {/* --- Email --- */}
                     <InputWithIcon 
                         icon={<Mail size={16} />}
