@@ -72,11 +72,11 @@ export default function ProfilePage() {
         router.refresh(); 
       } else {
         console.error('Failed to update profile');
-        // Adicionar um estado de erro para o usuário
+        // Add estado de erro p o user
       }
     } catch (error) {
       console.error('Error updating profile:', error);
-      // Adicionar um estado de erro para o usuário
+      // Add estado de erro p o user
     } finally {
       setIsSubmitting(false);
     }
