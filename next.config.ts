@@ -3,7 +3,16 @@ import createNextIntlPlugin from 'next-intl/plugin';
 
 const nextConfig: NextConfig = {
   /* config options here */
-  //output:"export"
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: process.env.NEXT_PUBLIC_SUPERBASE_URL_CROPPED!,
+        port: '',
+        pathname: '/**',
+      },
+    ],
+  },
 };
 
 const withNextIntl = createNextIntlPlugin();

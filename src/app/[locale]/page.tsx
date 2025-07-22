@@ -322,7 +322,7 @@ export default function Home() {
                 {t('contactSection.downloadDescription')}
               </p>
               <a href="/CV_Marco_Di_Toro.pdf" download="CV_Marco_Di_Toro.pdf" className="w-full">
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2">
+                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 cursor-pointer transition-colors">
                   <Download size={18} />
                   {t('contactSection.downloadButton')}
                 </button>

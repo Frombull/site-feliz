@@ -15,6 +15,11 @@ export function Header() {
     const { data: session } = useSession();
     const [menuOpen, setMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
+    const [imageError, setImageError] = useState(false);
+
+    useEffect(() => {
+        setImageError(false);
+    }, [session?.user?.image]);
 
     useEffect(() => {
         // Saved theme preference or default to system preference
@@ -142,7 +147,8 @@ export function Header() {
                         <div className="relative" ref={menuRef}>
                             <button onClick={() => setMenuOpen(!menuOpen)} className="flex items-center gap-2 rounded-full p-1 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                                 <Image 
-                                    src={session.user?.image || '/profile_picture.png'} 
+                                    src={imageError ? '/default-profile-picture.png' : session.user?.image || '/default-profile-picture.png'} 
+                                    onError={() => setImageError(true)}
                                     alt="User profile" 
                                     width={32} 
                                     height={32} 
@@ -161,11 +167,11 @@ export function Header() {
                                         <p className="text-xs text-gray-500 truncate">{session.user?.email}</p>
                                     </div>
                                     <div className="border-t border-gray-200 dark:border-gray-700"></div>
-                                    <Link href="/profile" className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                    <Link href="/profile" className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-colors">
                                         <UserIcon size={16} />
                                         {t('profile')}
                                     </Link>
-                                    <button onClick={() => signOut({ callbackUrl: '/' })} className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                    <button onClick={() => signOut({ callbackUrl: '/' })} className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-colors">
                                         <LogOut size={16} />
                                         {t('logout')}
                                     </button>

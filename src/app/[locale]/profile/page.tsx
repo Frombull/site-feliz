@@ -16,11 +16,13 @@ export default function ProfilePage() {
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
     if (session) {
       setName(session.user?.name || '');
-      setPreview(session.user?.image || '/profile_picture.png');
+      setPreview(session.user?.image || '/default-profile-picture.png');
+      setImageError(false);
     }
   }, [session]);
 
@@ -64,14 +66,10 @@ export default function ProfilePage() {
       if (response.ok) {
         const updatedUser = await response.json();
         await update({
-          ...session,
-          user: {
-            ...session.user,
-            name: updatedUser.name,
-            image: updatedUser.image,
-          },
+          name: updatedUser.name,
+          image: updatedUser.image,
         });
-        router.refresh(); // Recarrega a página para refletir as mudanças no header
+        router.refresh(); 
       } else {
         console.error('Failed to update profile');
         // Adicionar um estado de erro para o usuário
@@ -95,7 +93,8 @@ export default function ProfilePage() {
               <div className="flex flex-col items-center space-y-4">
                 <div className="relative">
                   <Image
-                    src={preview || '/profile_picture.png'}
+                    src={imageError ? '/default-profile-picture.png' : preview || '/default-profile-picture.png'}
+                    onError={() => setImageError(true)}
                     alt="Profile preview"
                     width={128}
                     height={128}

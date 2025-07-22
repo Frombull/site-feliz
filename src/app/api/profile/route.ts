@@ -18,13 +18,43 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
+  const currentUser = await prisma.user.findUnique({
+    where: { id: session.user.id },
+  });
+
+  if (!currentUser) {
+    return NextResponse.json({ error: 'User not found' }, { status: 404 });
+  }
+
   const formData = await req.formData();
   const name = formData.get('name') as string;
   const image = formData.get('image') as File | null;
 
-  let imageUrl: string | undefined;
+  let imageUrl = currentUser.image;
 
   if (image) {
+    // Delete old image from Supabase if it exists
+    if (currentUser.image) {
+      const bucketName = 'site-feliz-bucket'; // TODO: use .env var
+      const pathStartIndex = currentUser.image.indexOf(bucketName + '/');
+      
+      if (pathStartIndex !== -1) {
+        const pathWithQuery = currentUser.image.substring(pathStartIndex + bucketName.length + 1);
+        const objectPath = decodeURIComponent(pathWithQuery.split('?')[0]);
+
+        if (objectPath) {
+          const { error: deleteError } = await supabase.storage
+            .from(bucketName)
+            .remove([objectPath]);
+
+          if (deleteError) {
+            console.error('Supabase delete error:', deleteError.message);
+            // Non-fatal, continue with the stuffs
+          }
+        }
+      }
+    }
+
     const filePath = `Profile Pictures/${session.user.id}-${image.name}`;
     const { data, error } = await supabase.storage
       .from('site-feliz-bucket')
@@ -53,7 +83,7 @@ export async function POST(req: NextRequest) {
     where: { id: session.user.id },
     data: {
       name: name,
-      ...(imageUrl && { image: imageUrl }),
+      image: imageUrl,
     },
   });
 
