@@ -13,7 +13,13 @@
   "Profile": {
     "title": "Meu Perfil",
     "name": "Nome",
+    "nameLabel": "Nome",
+    "namePlaceholder": "Digite seu nome",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Digite seu endereço de email",
     "image": "Foto de Perfil",
+    "imageTypeError": "Tipo de imagem inválido. Selecione um arquivo PNG, JPG ou WEBP.",
+    "imageSizeError": "O tamanho da imagem é muito grande. Selecione um arquivo com menos de 1MB.",
     "save": "Salvar Alterações",
     "saving": "Salvando...",
     "loading": "Carregando..."
@@ -84,8 +90,8 @@
       "downloadDescription": "Baixe uma versão em PDF de meu currículo para referências futuras.",
       "downloadButton": "Download (PDF)"
     },
-    "linkedinQRCodeAlt": "QR Code para o LinkedIn de Marco Di Toro",
-    "linkedinQRCodeTitle": "Visitar LinkedIn de Marco Di Toro",
+    "linkedinQRCodeAlt": "QR Code para o LinkedIn",
+    "linkedinQRCodeTitle": "Visitar LinkedIn",
     "logoAlt": "logo"
   },
   "footer": {
@@ -168,7 +174,7 @@
   },
   "CookiesPolicy": {
     "title": "Política de Cookies",
-    "introduction": "Esta Política de Cookies explica o que são cookies и como os usamos neste site.",
+    "introduction": "Esta Política de Cookies explica o que são cookies e como os usamos neste site.",
     "whatAreCookies": {
       "title": "O que são Cookies?",
       "p1": "Cookies são pequenos arquivos de texto que são colocados no seu computador ou dispositivo móvel quando você visita um site. Eles são amplamente utilizados para fazer os sites funcionarem de forma mais eficiente e para fornecer informações aos proprietários do site."
@@ -189,5 +195,17 @@
       "title": "Contato",
       "p1": "Se você tiver alguma dúvida sobre nosso uso de cookies, entre em contato comigo."
     }
+  },
+  "LoginPage": {
+    "title": "Login",
+    "emailLabel": "E-mail",
+    "passwordLabel": "Senha",
+    "emailPlaceholder": "E-mail",
+    "passwordPlaceholder": "Senha",
+    "loginButton": "Entrar",
+    "loading": "Entrando...",
+    "forgotPassword": "Esqueceu a senha?",
+    "createAccount": "Criar uma conta",
+    "backToHome": "Voltar para a Home"
   }
 }

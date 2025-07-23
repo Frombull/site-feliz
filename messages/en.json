@@ -76,8 +76,8 @@
         "downloadDescription": "Download a PDF version of my resume for future reference.",
         "downloadButton": "Download (PDF)"
       },
-      "linkedinQRCodeAlt": "QR Code for Marco Di Toro's LinkedIn",
-      "linkedinQRCodeTitle": "Visit Marco Di Toro's LinkedIn",
+      "linkedinQRCodeAlt": "QR Code for LinkedIn",
+      "linkedinQRCodeTitle": "Visit LinkedIn",
       "logoAlt": "logo"
     },
     "footer": {
@@ -185,9 +185,27 @@
     "Profile": {
       "title": "My Profile",
       "name": "Name",
+      "nameLabel": "Name",
+      "namePlaceholder": "Enter your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email address",
       "image": "Profile Picture",
+      "imageTypeError": "Invalid image type. Please select a PNG, JPG, or WEBP file.",
+      "imageSizeError": "Image size is too large. Please select a file under 1MB.",
       "save": "Save Changes",
       "saving": "Saving...",
       "loading": "Loading..."
+    },
+    "LoginPage": {
+      "title": "Login",
+      "emailLabel": "E-mail",
+      "passwordLabel": "Password",
+      "emailPlaceholder": "E-mail",
+      "passwordPlaceholder": "Password",
+      "loginButton": "Login",
+      "loading": "Loading...",
+      "forgotPassword": "Forgot password?",
+      "createAccount": "Create an account",
+      "backToHome": "Back to Home"
     }
   }

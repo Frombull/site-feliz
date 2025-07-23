@@ -129,7 +129,7 @@ export default function Home() {
   return (
     <div className="bg-gray-100 dark:bg-gray-900 min-h-screen font-sans">
       <main className="container mx-auto p-4 pt-24 md:pt-24 md:px-8">
-        {/* --- Cabeçalho --- */}
+        {/* --- Header --- */}
         <header className="text-center mb-12 animate-fade-in">
             <div className="w-32 h-32 rounded-full mx-auto mb-6 shadow-lg bg-gradient-to-tr from-blue-400 to-purple-500 hover:scale-105 transition-transform duration-300">
             <Image 
@@ -161,9 +161,9 @@ export default function Home() {
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* --- Coluna Esquerda --- */}
+          {/* --- Left Column --- */}
           <div className="lg:col-span-2 space-y-8">
-            {/* --- Sobre Mim --- */}
+            {/* --- About Me --- */}
             <SectionCard title={t('aboutMe')} icon={<User className="text-blue-500" />} id="about">
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 {t('aboutMeP1')}
@@ -173,7 +173,7 @@ export default function Home() {
               </p>
             </SectionCard>
 
-            {/* --- Experiência --- */}
+            {/* --- Professional Experience --- */}
             <SectionCard title={t('professionalExperience')} icon={<Briefcase className="text-blue-500" />} id="experience">
               <ExperienceCard
                   role={t('experience1.role')}
@@ -191,7 +191,7 @@ export default function Home() {
               />
             </SectionCard>
 
-            {/* --- Projetos --- */}
+            {/* --- Projects --- */}
             <SectionCard title={t('projects')} icon={<Code className="text-blue-500" />} id="projects">
                 <ProjectCard 
                         title={t('project1.title')}
@@ -224,9 +224,9 @@ export default function Home() {
             </SectionCard>
           </div>
 
-          {/* --- Coluna Direita --- */}
+          {/* --- Right Column --- */}
           <div className="space-y-8">
-            {/* --- Interesses / Skills --- */}
+            {/* --- Interests / Skills --- */}
             <SectionCard title={t('interestsAndSkills')} icon={<Star className="text-blue-500" />} id="skills">
                 <div className="space-y-4">
                     <div>
@@ -287,7 +287,7 @@ export default function Home() {
                 </div>
             </SectionCard>
 
-            {/* --- Educação --- */}
+            {/* --- Education --- */}
             <SectionCard title={t('education')} icon={<GraduationCap className="text-blue-500" />} id="education">
               <div>
                 <h3 className="font-bold text-md text-gray-800 dark:text-white">{t('education1.degree')}</h3>
@@ -302,7 +302,7 @@ export default function Home() {
               </div>
             </SectionCard>
 
-            {/* --- QR Code --- */}
+            {/* --- LinkedIn QR Code --- */}
                 <SectionCard title={t('linkedin')} icon={<Linkedin className="text-blue-500" />} id="linkedin">
                 <div className="flex justify-center p-2 bg-gray-50 dark:bg-gray-700 rounded-lg">
                     <a href="https://linkedin.com/in/marcoditoro" target="_blank" rel="noopener noreferrer" title={t('linkedinQRCodeTitle')}>
@@ -315,7 +315,7 @@ export default function Home() {
                 </div>
             </SectionCard>
 
-            {/* --- Download CV --- */}
+            {/* --- Download Resume --- */}
             <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
               <h4 className="font-semibold text-gray-800 dark:text-white mb-4">{t('contactSection.downloadTitle')}</h4>
               <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">

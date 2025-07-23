@@ -1,7 +1,7 @@
 'use client';
 
 import { useSession } from 'next-auth/react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { User, Mail, Camera, Save, Loader2 } from 'lucide-react';
@@ -13,14 +13,19 @@ export default function ProfilePage() {
   const router = useRouter();
   
   const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [image, setImage] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [validationError, setValidationError] = useState<string | null>(null);
+
+  const allowedImageTypes = useMemo(() => ['image/jpeg', 'image/png', 'image/jpg', 'image/webp'], []);
 
   useEffect(() => {
     if (session) {
       setName(session.user?.name || '');
+      setEmail(session.user?.email || '');
       setPreview(session.user?.image || '/default-profile-picture.png');
       setImageError(false);
     }
@@ -37,6 +42,17 @@ export default function ProfilePage() {
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      setValidationError(null);
+      if (!allowedImageTypes.includes(file.type)) {
+        setValidationError(t('imageTypeError'));
+        return;
+      }
+
+      if (file.size > 1 * 1024 * 1024) { // 1MB
+        setValidationError(t('imageSizeError'));
+        return;
+      }
+      
       setImage(file);
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -50,9 +66,11 @@ export default function ProfilePage() {
     e.preventDefault();
     if (isSubmitting) return;
     setIsSubmitting(true);
+    setValidationError(null);
 
     const formData = new FormData();
     formData.append('name', name);
+    formData.append('email', email);
     if (image) {
       formData.append('image', image);
     }
@@ -67,16 +85,17 @@ export default function ProfilePage() {
         const updatedUser = await response.json();
         await update({
           name: updatedUser.name,
+          email: updatedUser.email,
           image: updatedUser.image,
         });
         router.refresh(); 
       } else {
-        console.error('Failed to update profile');
-        // Add estado de erro p o user
+        const errorData = await response.json();
+        setValidationError(errorData.error || 'Failed to update profile');
       }
     } catch (error) {
       console.error('Error updating profile:', error);
-      // Add estado de erro p o user
+      setValidationError('An unexpected error occurred.');
     } finally {
       setIsSubmitting(false);
     }
@@ -111,15 +130,19 @@ export default function ProfilePage() {
                     />
                   </label>
                 </div>
+                {validationError && (
+                  <p className="text-sm text-red-500 dark:text-red-400 text-center">{validationError}</p>
+                )}
                 <div className="text-center">
-                    <p className="text-2xl font-semibold text-gray-800 dark:text-white">{session.user?.name}</p>
-                    <p className="text-md text-gray-500 dark:text-gray-400">{session.user?.email}</p>
+                    <p className="text-2xl font-semibold text-gray-800 dark:text-white">{name}</p>
+                    <p className="text-md text-gray-500 dark:text-gray-400">{email}</p>
                 </div>
               </div>
 
               <div className="space-y-6">
                 <div className="relative">
-                    <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none text-gray-400">
+                    <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{t('nameLabel')}</label>
+                    <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none text-gray-400 top-8">
                         <User size={16} />
                     </div>
                     <input
@@ -127,7 +150,21 @@ export default function ProfilePage() {
                         id="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder={t('name')}
+                        placeholder={t('namePlaceholder')}
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    />
+                </div>
+                <div className="relative">
+                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{t('emailLabel')}</label>
+                    <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none text-gray-400 top-8">
+                        <Mail size={16} />
+                    </div>
+                    <input
+                        type="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder={t('emailPlaceholder')}
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     />
                 </div>

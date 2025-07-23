@@ -1,7 +1,7 @@
 'use client';
 
 import { Mail, Lock, LogIn } from 'lucide-react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
@@ -40,6 +40,7 @@ const InputWithIcon = ({ icon, type, placeholder, id, value, onChange }: { icon:
 
 
 export default function LoginPage() {
+    const t = useTranslations('LoginPage');
     const locale = useLocale();
     const router = useRouter();
     const [email, setEmail] = useState('');
@@ -62,34 +63,36 @@ export default function LoginPage() {
             setError('Credenciais inválidas. Verifique seu e-mail e senha.');
             setLoading(false);
         } else {
-            // Sucesso, redireciona para o dashboard
+            // Redirect
             router.push(`/${locale}/dashboard`);
         }
     };
 
   return (
     <div className="bg-gray-100 dark:bg-gray-900 min-h-screen font-sans flex items-center justify-center">
-      <main className="container mx-auto p-4 md:p-8 flex justify-center">
+      <main className="container mx-auto p-4 md:p-8 flex justify-center animate-fade-in-up">
         <div className="w-full max-w-md">
-           <SectionCard title="Login" icon={<LogIn className="text-blue-500" />}>
+           <SectionCard title={t('title')} icon={<LogIn className="text-blue-500" />}>
                 <form className="space-y-6" onSubmit={handleSubmit}>
                     {error && <p className="text-red-500 text-center">{error}</p>}
                     {/* --- Email --- */}
+                    <label htmlFor="email-input" className="block mb-1 ml-1 text-sm font-medium text-gray-900 dark:text-white">{t('emailLabel')+"*"}</label>
                     <InputWithIcon 
                         icon={<Mail size={16} />}
                         type="email"
                         id="email-input"
-                        placeholder="E-mail"
+                        placeholder={t('emailPlaceholder')}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
 
                     {/* --- Password --- */}
+                    <label htmlFor="password-input" className="block mb-1 ml-1 text-sm font-medium text-gray-900 dark:text-white">{t('passwordLabel')+"*"}</label>
                     <InputWithIcon 
                         icon={<Lock size={16} />}
                         type="password"
                         id="password-input"
-                        placeholder="Password"
+                        placeholder={t('passwordPlaceholder')+"*"}
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
@@ -97,27 +100,27 @@ export default function LoginPage() {
                     {/* --- Login button --- */}
                     <button 
                         type="submit"
-                        className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800 transition-colors duration-300 disabled:opacity-50"
+                        className="w-full mt-4 text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800 transition-colors duration-300 disabled:opacity-50"
                         disabled={loading}
                     >
-                        {loading ? 'Entrando...' : 'Entrar'}
+                        {loading ? t('loading') : t('loginButton')}
                     </button>
 
                     {/* --- Links --- */}
                     <div className="text-sm text-center font-medium text-gray-500 dark:text-gray-400">
                         <Link href={`/${locale}/forgot-password`} className="text-blue-600 hover:underline dark:text-blue-400">
-                            Esqueceu a senha?
+                            {t('forgotPassword')}
                         </Link>
                         <span className="mx-2">|</span>
                          <Link href={`/${locale}/signup`} className="text-blue-600 hover:underline dark:text-blue-400">
-                            Criar uma conta
+                            {t('createAccount')}
                         </Link>
                     </div>
                 </form>
             </SectionCard>
              <footer className="text-center mt-8">
                 <p className="text-gray-500 dark:text-gray-400 text-sm">
-                   <Link href="/" className="hover:underline">Voltar para a Home</Link>
+                   <Link href="/" className="hover:underline">{t('backToHome')}</Link>
                 </p>
             </footer>
         </div>

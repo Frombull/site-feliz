@@ -28,11 +28,37 @@ export async function POST(req: NextRequest) {
 
   const formData = await req.formData();
   const name = formData.get('name') as string;
+  const email = formData.get('email') as string;
   const image = formData.get('image') as File | null;
 
   let imageUrl = currentUser.image;
 
+  if (!name || !email) {
+    return NextResponse.json({ error: 'Name and email are required' }, { status: 400 });
+  }
+
+  if (email !== currentUser.email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json({ error: 'Invalid email format' }, { status: 400 });
+    }
+
+    const existingUser = await prisma.user.findUnique({ where: { email } });
+    if (existingUser && existingUser.id !== currentUser.id) {
+      return NextResponse.json({ error: 'Email already in use' }, { status: 409 });
+    }
+  }
+  
   if (image) {
+    const allowedImageTypes = ['image/jpeg', 'image/png', 'image/jpg', 'image/webp'];
+    if (!allowedImageTypes.includes(image.type)) {
+      return NextResponse.json({ error: 'Invalid image type. Only JPG, PNG, and WEBP are allowed.' }, { status: 400 });
+    }
+
+    if (image.size > 1 * 1024 * 1024) { // 1MB
+      return NextResponse.json({ error: 'Image size exceeds 1MB limit.' }, { status: 400 });
+    }
+    
     // Delete old image from Supabase if it exists
     if (currentUser.image) {
       const bucketName = 'site-feliz-bucket'; // TODO: use .env var
@@ -83,6 +109,7 @@ export async function POST(req: NextRequest) {
     where: { id: session.user.id },
     data: {
       name: name,
+      email: email,
       image: imageUrl,
     },
   });
