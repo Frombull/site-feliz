@@ -32,7 +32,7 @@ cd site-feliz
 
 ```bash
 # Crie o arquivo .env para o Docker
-cp docker/.env.example docker/.env
+cp docker/.env.template docker/.env
 
 # Edite o arquivo docker/.env com suas configurações
 # Em seguida, suba o banco de dados
@@ -43,7 +43,7 @@ docker compose -f docker/docker-compose.yml up -d
 
 ```bash
 # Crie o arquivo .env principal
-cp .env.example .env
+cp .env.template .env
 
 # Edite o .env com base no .env.template
 ```
@@ -81,41 +81,23 @@ A aplicação estará disponível em `http://localhost:3000`
 
 ```
 site-feliz/
-├── docker/                 # Configurações Docker
-├── messages/               # Arquivos de tradução
-├── prisma/                # Schema e migrações do banco
-├── public/                # Arquivos estáticos
+├── docker/
+├── messages/
+├── prisma/
+├── public/
 ├── src/
-│   ├── app/               # App Router do Next.js
-│   │   ├── [locale]/      # Rotas internacionalizadas
-│   │   └── api/           # API Routes
-│   ├── components/        # Componentes React
-│   ├── i18n/             # Configurações de internacionalização
-│   └── lib/              # Utilitários e configurações
-└── types/                # Definições de tipos TypeScript
+│   ├── app/
+│   │   ├── [locale]/
+│   │   └── api/
+│   ├── components/
+│   ├── i18n/
+│   └── lib/
+└── types/
 ```
-
-## 🐳 Docker
-
-Para executar completamente via Docker:
-
-```bash
-# Subir apenas o banco de dados
-docker compose -f docker/docker-compose.yml up -d
-
-# Ou criar um Dockerfile para a aplicação completa
-docker build -t site-feliz .
-docker run -p 3000:3000 site-feliz
-```
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 👨‍💻 Autor (euuuu o/)
 
 **Marco Di Toro**
-- LinkedIn: [linkedin.com/in/marcoditoro](https://linkedin.com/in/marcoditoro)
-- Email: marco.renzo@ges.inatel.br
+- LinkedIn: [linkedin.com/in/marcoditoro](https://linkedin.com/in/marcoditoro/)
 
 Se meu projeto te ajudou, considere dar uma estrela! ⭐
