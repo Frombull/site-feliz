@@ -61,7 +61,7 @@ export default function LoginPage() {
         });
 
         if (result?.error) {
-            setError('Credenciais inválidas. Verifique seu e-mail e senha.');
+            setError(t('invalidCredentials'));
             setLoading(false);
         } else {
             // Redirect
@@ -126,7 +126,7 @@ export default function LoginPage() {
                             <div className="w-full border-t border-gray-300 dark:border-gray-600" />
                         </div>
                         <div className="relative flex justify-center text-sm">
-                            <span className="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">ou</span>
+                            <span className="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">{t('or')}</span>
                         </div>
                     </div>
 

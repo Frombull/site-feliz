@@ -207,6 +207,8 @@
     "forgotPassword": "Esqueceu a senha?",
     "createAccount": "Criar uma conta",
     "backToHome": "Voltar para a Home",
-    "continueWithGoogle": "Continuar com Google"
+    "continueWithGoogle": "Continuar com Google",
+    "invalidCredentials": "Credenciais inválidas. Verifique seu e-mail e senha.",
+    "or": "ou"
   }
 }
