@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Site Feliz :)
 
-First, run the development server:
+Meu portfólio pessoal desenvolvido com Next.js 15, com autenticação (não pergunte porquê), internacionalização e temas escuro/claro.
+
+## Características foda ⬇️⬇️⬇️‼️
+
+- 🌐 Internacionalização
+- 🔐 Autenticação com NextAuth.js e OAuth 2.0
+- 🎨 Design responsivo com Tailwind CSS
+- 🌙 Modo escuro/claro
+- 🔒 Sistema de perfil de usuário com recuperação de senha por email
+- 🐳 Containerização com Docker 
+- 🗄️ DB PostgreSQL com Prisma ORM
+
+## Instalação
+
+### Pré-requisitos
+
+- Node.js 18+ instalado
+- Docker e Docker Compose
+- Git
+
+### 1. Clone o repositório
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/seu-usuario/site-feliz.git
+cd site-feliz
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Configure o banco de dados (com docker 🐋)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Crie o arquivo .env para o Docker
+cp docker/.env.example docker/.env
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Edite o arquivo docker/.env com suas configurações
+# Em seguida, suba o banco de dados
+docker compose -f docker/docker-compose.yml up -d
+```
 
-## Learn More
+### 3. Configuração da aplicação
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Crie o arquivo .env principal
+cp .env.example .env
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Edite o .env com base no .env.template
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. Instale as dependências
 
-## Deploy on Vercel
+```bash
+npm install
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 5. Configuração do banco de dados
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Execute as migrações do Prisma
+npx prisma migrate dev --name init
+
+# Gere o cliente Prisma
+npx prisma generate
+```
+
+### 6. Execute o projeto
+
+```bash
+# DEV
+npm run dev
+
+# PROD
+npm run build
+npm start
+```
+
+A aplicação estará disponível em `http://localhost:3000`
+
+## 🗂️ Estrutura do Projeto
+
+```
+site-feliz/
+├── docker/                 # Configurações Docker
+├── messages/               # Arquivos de tradução
+├── prisma/                # Schema e migrações do banco
+├── public/                # Arquivos estáticos
+├── src/
+│   ├── app/               # App Router do Next.js
+│   │   ├── [locale]/      # Rotas internacionalizadas
+│   │   └── api/           # API Routes
+│   ├── components/        # Componentes React
+│   ├── i18n/             # Configurações de internacionalização
+│   └── lib/              # Utilitários e configurações
+└── types/                # Definições de tipos TypeScript
+```
+
+## 🐳 Docker
+
+Para executar completamente via Docker:
+
+```bash
+# Subir apenas o banco de dados
+docker compose -f docker/docker-compose.yml up -d
+
+# Ou criar um Dockerfile para a aplicação completa
+docker build -t site-feliz .
+docker run -p 3000:3000 site-feliz
+```
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 👨‍💻 Autor (euuuu o/)
+
+**Marco Di Toro**
+- LinkedIn: [linkedin.com/in/marcoditoro](https://linkedin.com/in/marcoditoro)
+- Email: marco.renzo@ges.inatel.br
+
+Se meu projeto te ajudou, considere dar uma estrela! ⭐

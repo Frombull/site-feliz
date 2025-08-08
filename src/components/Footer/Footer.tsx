@@ -18,10 +18,10 @@ export function Footer() {
               <div className="pl-44">
                 <h4 className="font-semibold text-gray-700 dark:text-gray-200">{t('navigation')}</h4>
                 <ul className="mt-2 space-y-1 text-sm">
-                  <li><a href="#about" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 transition-colors">{t('about')}</a></li>
-                  <li><a href="#experience" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 transition-colors">{t('experience')}</a></li>
-                  <li><a href="#projects" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 transition-colors">{t('projects')}</a></li>
-                  <li><a href="#contact" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 transition-colors">{t('contact')}</a></li>
+                  <li><a href="#about" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">{t('about')}</a></li>
+                  <li><a href="#experience" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">{t('experience')}</a></li>
+                  <li><a href="#projects" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">{t('projects')}</a></li>
+                  <li><a href="#contact" className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">{t('contact')}</a></li>
                 </ul>
               </div>
 
@@ -53,27 +53,27 @@ export function Footer() {
                   href="https://github.com/Frombull/site-feliz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-500 dark:text-gray-400 hover:text-blue-600 transition-colors"
+                  className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
                 >
                   {t('sourceCode')}
                 </Link>
 
                 <Link href={`/${locale}/privacy-policy`} 
-                  className="text-gray-500 dark:text-gray-400 hover:text-blue-600 transition-colors"
+                  className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
                   aria-label={t('privacyPolicy')}
                 >
                   {t('privacyPolicy')}
                 </Link>
 
                 <Link href={`/${locale}/terms-of-service`} 
-                  className="text-gray-500 dark:text-gray-400 hover:text-blue-600 transition-colors"
+                  className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
                   aria-label={t('termsOfService')}
                 >
                   {t('termsOfService')}
                 </Link>
 
                 <Link href={`/${locale}/cookies-policy`} 
-                  className="text-gray-500 dark:text-gray-400 hover:text-blue-600 transition-colors"
+                  className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
                   aria-label={t('cookiesPolicy')}
                 >
                   {t('cookiesPolicy')}

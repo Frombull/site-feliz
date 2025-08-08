@@ -3,8 +3,8 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { Footer } from '@/components/Footer/Footer';
 
-const IconText = ({ icon, children }) => (
-  <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+const IconText = ({ icon, children, className = "text-gray-600 dark:text-gray-400" }) => (
+  <div className={`flex items-center gap-2 ${className}`}>
     {icon}
     <span className="text-sm">{children}</span>
   </div>
@@ -151,8 +151,8 @@ export default function Home() {
               marco.renzo@ges.inatel.br
             </IconText>
 
-            <a href="https://linkedin.com/in/marcoditoro" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors">
-              <IconText icon={<Linkedin size={16} />}>
+            <a href="https://linkedin.com/in/marcoditoro/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <IconText icon={<Linkedin size={16} />} className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 linkedin.com/in/marcoditoro
               </IconText>
             </a>
@@ -304,7 +304,7 @@ export default function Home() {
 
             {/* --- LinkedIn QR Code --- */}
                 <SectionCard title={t('linkedin')} icon={<Linkedin className="text-blue-500" />} id="linkedin">
-                <div className="flex justify-center p-2 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                <div className="flex justify-center p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
                     <a href="https://linkedin.com/in/marcoditoro" target="_blank" rel="noopener noreferrer" title={t('linkedinQRCodeTitle')}>
                         <img 
                             src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://linkedin.com/in/marcoditoro" 
@@ -316,7 +316,7 @@ export default function Home() {
             </SectionCard>
 
             {/* --- Download Resume --- */}
-            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg animate-fade-in-up">
               <h4 className="font-semibold text-gray-800 dark:text-white mb-4">{t('contactSection.downloadTitle')}</h4>
               <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
                 {t('contactSection.downloadDescription')}

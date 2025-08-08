@@ -135,7 +135,7 @@ export function Header() {
                     {/* Dark Mode Toggle */}
                     <button
                         onClick={toggleDarkMode}
-                        className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                        className="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors hover:cursor-pointer"
                         aria-label="Toggle dark mode"
                     >
                         {darkMode ? <Sun size={20} /> : <Moon size={20} />}
@@ -145,7 +145,7 @@ export function Header() {
 
                     {session ? (
                         <div className="relative" ref={menuRef}>
-                            <button onClick={() => setMenuOpen(!menuOpen)} className="flex items-center gap-2 rounded-full p-1 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                            <button onClick={() => setMenuOpen(!menuOpen)} className="flex items-center gap-2 rounded-full p-1 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors hover:cursor-pointer">
                                 <Image 
                                     src={imageError ? '/default-profile-picture.png' : session.user?.image || '/default-profile-picture.png'} 
                                     onError={() => setImageError(true)}

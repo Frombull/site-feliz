@@ -206,6 +206,7 @@
     "loading": "Entrando...",
     "forgotPassword": "Esqueceu a senha?",
     "createAccount": "Criar uma conta",
-    "backToHome": "Voltar para a Home"
+    "backToHome": "Voltar para a Home",
+    "continueWithGoogle": "Continuar com Google"
   }
 }

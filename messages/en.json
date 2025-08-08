@@ -206,6 +206,7 @@
       "loading": "Loading...",
       "forgotPassword": "Forgot password?",
       "createAccount": "Create an account",
-      "backToHome": "Back to Home"
+      "backToHome": "Back to Home",
+      "continueWithGoogle": "Continue with Google"
     }
   }
