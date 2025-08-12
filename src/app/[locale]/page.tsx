@@ -166,12 +166,9 @@ export default function Home() {
                 className="w-full h-full rounded-full object-cover"
               />
             </div>
-            {/* Floating particles around profile */}
-            <div className="absolute -top-2 -right-2 w-4 h-4 bg-cyan-400 rounded-full animate-ping"></div>
-            <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-pink-400 rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-extrabold cyber-title mb-4">
+          <h1 className="text-5xl md:text-7xl font-extrabold cyber-subtitle mb-4">
             <GlitchText>{t('title')}</GlitchText>
           </h1>
           <p className="text-xl md:text-2xl cyber-subtitle mb-8">
@@ -390,7 +387,7 @@ export default function Home() {
                 {t('contactSection.downloadDescription')}
               </p>
               <a href="/CV_Marco_Di_Toro.pdf" download="CV_Marco_Di_Toro.pdf" className="w-full">
-                <button className="cyber-button w-full flex items-center justify-center gap-3">
+                <button className="cyber-button w-full flex items-center justify-center gap-3 hover:cursor-pointer">
                   <Download size={20} />
                   {t('contactSection.downloadButton')}
                 </button>

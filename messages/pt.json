@@ -9,7 +9,7 @@
   },
   "HomePage": {
     "title": "Marco Di Toro",
-    "subtitle": "Técnico em Telecomunicações | Engenheiro de Software",
+    "subtitle": "Engenheiro de Software | Técnico em Telecomunicações",
     "profilePictureAlt": "Foto de Perfil",
     "aboutMe": "Sobre Mim",
     "aboutMeP1": "Sou técnico em telecomunicações, apaixonado por desenvolvimento de software. Estou sempre adquirindo conhecimento em diversas áreas e aplicando esse aprendizado em meus projetos pessoais.",
@@ -157,7 +157,7 @@
   },
   "CookiesPolicy": {
     "title": "Política de Cookies",
-    "introduction": "Esta Política de Cookies explica o que são cookies и como os usamos neste site.",
+    "introduction": "Esta Política de Cookies explica o que são cookies e como os usamos neste site.",
     "whatAreCookies": {
       "title": "O que são Cookies?",
       "p1": "Cookies são pequenos arquivos de texto que são colocados no seu computador ou dispositivo móvel quando você visita um site. Eles são amplamente utilizados para fazer os sites funcionarem de forma mais eficiente e para fornecer informações aos proprietários do site."

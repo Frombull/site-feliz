@@ -36,7 +36,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
+  background:
     radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 40% 40%, rgba(0, 255, 65, 0.05) 0%, transparent 50%);
@@ -84,31 +84,63 @@ html {
 
 /* Neon Animations */
 @keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 @keyframes neonPulse {
-  0%, 100% { 
+
+  0%,
+  100% {
     box-shadow: 0 0 5px var(--cyber-primary), 0 0 10px var(--cyber-primary), 0 0 15px var(--cyber-primary);
   }
-  50% { 
+
+  50% {
     box-shadow: 0 0 10px var(--cyber-primary), 0 0 20px var(--cyber-primary), 0 0 30px var(--cyber-primary);
   }
 }
 
 @keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-  100% { transform: translate(0); }
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-2px, 2px);
+  }
+
+  40% {
+    transform: translate(-2px, -2px);
+  }
+
+  60% {
+    transform: translate(2px, 2px);
+  }
+
+  80% {
+    transform: translate(2px, -2px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
 }
 
 @keyframes scanline {
-  0% { transform: translateY(-100vh); }
-  100% { transform: translateY(100vh); }
+  0% {
+    transform: translateY(-100vh);
+  }
+
+  100% {
+    transform: translateY(100vh);
+  }
 }
 
 @keyframes fadeInCyber {
@@ -116,6 +148,7 @@ html {
     opacity: 0;
     transform: translateY(30px) scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -127,6 +160,7 @@ html {
     opacity: 0;
     transform: translateX(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -138,6 +172,7 @@ html {
     opacity: 0;
     transform: translateX(50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -261,7 +296,7 @@ html {
   border-color: var(--cyber-primary);
   color: var(--cyber-primary);
   background: linear-gradient(45deg, rgba(0, 255, 255, 0.05), rgba(0, 255, 255, 0.1));
-  box-shadow: 
+  box-shadow:
     0 0 15px rgba(0, 255, 255, 0.3),
     inset 0 0 15px rgba(0, 255, 255, 0.1);
   transform: translateY(-2px) scale(1.02);
@@ -280,7 +315,7 @@ html {
 
 .cyber-link:active {
   transform: translateY(0) scale(0.98);
-  box-shadow: 
+  box-shadow:
     0 0 10px rgba(0, 255, 255, 0.5),
     inset 0 0 20px rgba(0, 255, 255, 0.2);
 }
@@ -337,6 +372,7 @@ html {
 
 .cyber-badge.frontend:hover {
   background: var(--cyber-secondary);
+  color: var(--cyber-bg-dark);
   box-shadow: 0 0 10px var(--cyber-secondary);
 }
 
@@ -345,9 +381,21 @@ html {
   color: var(--cyber-accent);
 }
 
+.cyber-badge.backend:hover {
+  background: var(--cyber-accent);
+  color: var(--cyber-bg-dark);
+  box-shadow: 0 0 10px var(--cyber-accent);
+}
+
 .cyber-badge.qa {
   border-color: var(--cyber-primary);
   color: var(--cyber-primary);
+}
+
+.cyber-badge.qa:hover {
+  background: var(--cyber-primary);
+  color: var(--cyber-bg-dark);
+  box-shadow: 0 0 10px var(--cyber-primary);
 }
 
 .cyber-badge.devops {
@@ -386,12 +434,29 @@ html {
 }
 
 /* Stagger animations */
-.animate-fade-in-cyber:nth-child(1) { animation-delay: 0.1s; }
-.animate-fade-in-cyber:nth-child(2) { animation-delay: 0.2s; }
-.animate-fade-in-cyber:nth-child(3) { animation-delay: 0.3s; }
-.animate-fade-in-cyber:nth-child(4) { animation-delay: 0.4s; }
-.animate-fade-in-cyber:nth-child(5) { animation-delay: 0.5s; }
-.animate-fade-in-cyber:nth-child(6) { animation-delay: 0.6s; }
+.animate-fade-in-cyber:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.animate-fade-in-cyber:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.animate-fade-in-cyber:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.animate-fade-in-cyber:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.animate-fade-in-cyber:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.animate-fade-in-cyber:nth-child(6) {
+  animation-delay: 0.6s;
+}
 
 /* Cyberpunk Scrollbar */
 ::-webkit-scrollbar {
@@ -417,16 +482,15 @@ html {
 .cyber-profile {
   position: relative;
   border: 2px solid var(--cyber-primary);
-  box-shadow: 
+  box-shadow:
     0 0 20px var(--cyber-primary),
     inset 0 0 20px rgba(0, 255, 255, 0.1);
   transition: all 0.3s ease;
 }
 
 .cyber-profile:hover {
-  box-shadow: 
+  box-shadow:
     0 0 30px var(--cyber-primary),
-    0 0 50px var(--cyber-primary),
     inset 0 0 30px rgba(0, 255, 255, 0.2);
   transform: scale(1.05);
 }
@@ -446,7 +510,7 @@ html {
 
 /* Cyber Grid Background */
 .cyber-grid {
-  background-image: 
+  background-image:
     linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
@@ -454,61 +518,98 @@ html {
 
 /* Additional Cyber Animations */
 @keyframes float {
-  0% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-10px) rotate(120deg); }
-  66% { transform: translateY(5px) rotate(240deg); }
-  100% { transform: translateY(0px) rotate(360deg); }
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-10px) rotate(120deg);
+  }
+
+  66% {
+    transform: translateY(5px) rotate(240deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(360deg);
+  }
 }
 
 @keyframes dataStream {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100vw); }
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100vw);
+  }
 }
 
 @keyframes hologram {
-  0%, 100% { 
+
+  0%,
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
-  50% { 
+
+  50% {
     opacity: 0.7;
     transform: translateY(-2px);
   }
 }
 
 @keyframes circuitPulse {
-  0%, 100% { 
+
+  0%,
+  100% {
     box-shadow: 0 0 5px var(--cyber-primary);
     border-color: var(--cyber-primary);
   }
-  50% { 
+
+  50% {
     box-shadow: 0 0 20px var(--cyber-primary), 0 0 30px var(--cyber-primary);
     border-color: var(--cyber-secondary);
   }
 }
 
 @keyframes scanEffect {
-  0% { 
+  0% {
     transform: translateX(-100%);
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
-  100% { 
+
+  100% {
     transform: translateX(100%);
     opacity: 0;
   }
 }
 
 @keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Cyber Hover Effects */
@@ -554,17 +655,17 @@ html {
   .cyber-title {
     font-size: 2.5rem;
   }
-  
+
   .cyber-card {
     margin: 0.5rem;
   }
-  
+
   .cyber-grid {
     background-size: 25px 25px;
   }
-  
+
   body::before {
-    background: 
+    background:
       radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
       radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.05) 0%, transparent 50%);
   }
@@ -574,7 +675,7 @@ html {
   .cyber-title {
     font-size: 2rem;
   }
-  
+
   .cyber-subtitle {
     font-size: 1rem;
   }

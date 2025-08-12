@@ -146,9 +146,9 @@ export function Footer() {
                 <div className="flex justify-center mt-8">
                     <div className="relative flex items-center gap-2 px-6 py-3 border border-green-500/30 rounded-full bg-green-500/10 hover:bg-green-500/20 transition-all group cursor-pointer">
                         {/* Animated border */}
-                        <div className="absolute inset-0 rounded-full border border-green-400/50 animate-ping opacity-0 group-hover:opacity-100"></div>
+                        <div className="absolute inset-0 rounded-full border border-green-400/50 opacity-0 group-hover:opacity-100"></div>
                         
-                        <Zap className="text-green-400 animate-pulse group-hover:animate-spin" size={16} />
+                        <Zap className="text-green-400 animate-pulse" size={16} />
                         <span className="text-xs cyber-mono text-green-400 group-hover:text-green-300">
                             SYSTEM OPERATIONAL
                         </span>
