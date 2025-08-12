@@ -1,100 +1,581 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono:wght@400&family=Exo+2:wght@300;400;500;600;700;800;900&family=Audiowide:wght@400&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cyber-primary: #00ffff;
+  --cyber-secondary: #ff0080;
+  --cyber-accent: #00ff41;
+  --cyber-warning: #ffff00;
+  --cyber-bg-dark: #0a0a0f;
+  --cyber-bg-darker: #050508;
+  --cyber-surface: #1a1a2e;
+  --cyber-surface-light: #16213e;
+  --cyber-text: #e0e0e0;
+  --cyber-text-dim: #a0a0a0;
+  --cyber-border: #00ffff40;
+  --cyber-glow: #00ffff80;
 }
 
-.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+* {
+  box-sizing: border-box;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background: linear-gradient(135deg, var(--cyber-bg-darker) 0%, var(--cyber-bg-dark) 50%, #0f0f23 100%);
+  color: var(--cyber-text);
+  font-family: 'Exo 2', 'Arial', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(0, 255, 65, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-@keyframes fadeIn {
+/* Cyberpunk Typography */
+.cyber-title {
+  font-family: 'Audiowide', monospace;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: linear-gradient(45deg, var(--cyber-primary), var(--cyber-secondary), var(--cyber-accent));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+  text-shadow: 0 0 20px var(--cyber-glow);
+}
+
+.cyber-subtitle {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 600;
+  color: var(--cyber-primary);
+  text-shadow: 0 0 10px var(--cyber-primary);
+  letter-spacing: 1px;
+}
+
+.cyber-text {
+  font-family: 'Exo 2', sans-serif;
+  color: var(--cyber-text);
+  line-height: 1.6;
+}
+
+.cyber-mono {
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--cyber-text);
+}
+
+/* Neon Animations */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes neonPulse {
+  0%, 100% { 
+    box-shadow: 0 0 5px var(--cyber-primary), 0 0 10px var(--cyber-primary), 0 0 15px var(--cyber-primary);
+  }
+  50% { 
+    box-shadow: 0 0 10px var(--cyber-primary), 0 0 20px var(--cyber-primary), 0 0 30px var(--cyber-primary);
+  }
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100vh); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes fadeInCyber {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
-@keyframes fadeInUp {
+@keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateX(-50px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out;
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out;
+/* Cyber Components */
+.cyber-card {
+  background: linear-gradient(135deg, var(--cyber-surface) 0%, var(--cyber-surface-light) 100%);
+  border: 1px solid var(--cyber-border);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cyber-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyber-primary), transparent);
+  animation: scanline 2s linear infinite;
+}
+
+.cyber-card:hover {
+  border-color: var(--cyber-primary);
+  box-shadow: 0 0 20px var(--cyber-glow);
+  transform: translateY(-2px);
+}
+
+.cyber-button {
+  background: linear-gradient(45deg, var(--cyber-surface), var(--cyber-surface-light));
+  border: 1px solid var(--cyber-primary);
+  color: var(--cyber-primary);
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.cyber-button:hover {
+  background: var(--cyber-primary);
+  color: var(--cyber-bg-dark);
+  box-shadow: 0 0 20px var(--cyber-primary);
+  text-shadow: none;
+  transform: translateY(-2px);
+}
+
+.cyber-button:hover::before {
+  left: 100%;
+}
+
+.cyber-button:active {
+  transform: translateY(0);
+}
+
+/* Cyber Link Button */
+.cyber-link {
+  position: relative;
+  display: inline-block;
+  padding: 10px 18px;
+  border: 1px solid var(--cyber-border);
+  border-radius: 4px;
+  background: linear-gradient(45deg, var(--cyber-surface), var(--cyber-surface-light));
+  color: var(--cyber-text);
+  text-decoration: none;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Scan line effect */
+.cyber-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyber-primary), transparent);
+  transition: left 0.6s ease;
+}
+
+/* Bottom scan line */
+.cyber-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyber-secondary), transparent);
+  transition: right 0.6s ease;
+}
+
+/* Hover effects */
+.cyber-link:hover {
+  border-color: var(--cyber-primary);
+  color: var(--cyber-primary);
+  background: linear-gradient(45deg, rgba(0, 255, 255, 0.05), rgba(0, 255, 255, 0.1));
+  box-shadow: 
+    0 0 15px rgba(0, 255, 255, 0.3),
+    inset 0 0 15px rgba(0, 255, 255, 0.1);
+  transform: translateY(-2px) scale(1.02);
+  text-shadow: 0 0 8px var(--cyber-primary);
+}
+
+.cyber-link:hover::before {
+  left: 100%;
+  animation: scanEffect 0.6s ease-in-out;
+}
+
+.cyber-link:hover::after {
+  right: 100%;
+  animation: scanEffect 0.6s ease-in-out 0.1s;
+}
+
+.cyber-link:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 
+    0 0 10px rgba(0, 255, 255, 0.5),
+    inset 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+/* Glitch effect on focus */
+.cyber-link:focus {
+  animation: glitch 0.3s ease-in-out;
+}
+
+/* Special effect for external links */
+.cyber-link[target="_blank"] {
+  position: relative;
+}
+
+.cyber-link[target="_blank"]::after {
+  content: '↗';
+  position: absolute;
+  top: 2px;
+  right: 6px;
+  font-size: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cyber-link[target="_blank"]:hover::after {
+  opacity: 1;
+  animation: neonPulse 1s ease-in-out infinite;
+}
+
+.cyber-badge {
+  background: linear-gradient(45deg, var(--cyber-surface), var(--cyber-surface-light));
+  border: 1px solid var(--cyber-accent);
+  color: var(--cyber-accent);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.cyber-badge:hover {
+  background: var(--cyber-accent);
+  color: var(--cyber-bg-dark);
+  box-shadow: 0 0 10px var(--cyber-accent);
+}
+
+/* Skill Category Colors */
+.cyber-badge.frontend {
+  border-color: var(--cyber-secondary);
+  color: var(--cyber-secondary);
+}
+
+.cyber-badge.frontend:hover {
+  background: var(--cyber-secondary);
+  box-shadow: 0 0 10px var(--cyber-secondary);
+}
+
+.cyber-badge.backend {
+  border-color: var(--cyber-accent);
+  color: var(--cyber-accent);
+}
+
+.cyber-badge.qa {
+  border-color: var(--cyber-primary);
+  color: var(--cyber-primary);
+}
+
+.cyber-badge.devops {
+  border-color: var(--cyber-warning);
+  color: var(--cyber-warning);
+}
+
+.cyber-badge.devops:hover {
+  background: var(--cyber-warning);
+  color: var(--cyber-bg-dark);
+  box-shadow: 0 0 10px var(--cyber-warning);
+}
+
+/* Animation Classes */
+.animate-fade-in-cyber {
+  animation: fadeInCyber 0.8s ease-out;
   animation-fill-mode: both;
 }
 
-/* Stagger animation for multiple elements */
-.animate-fade-in-up:nth-child(1) { animation-delay: 0.1s; }
-.animate-fade-in-up:nth-child(2) { animation-delay: 0.2s; }
-.animate-fade-in-up:nth-child(3) { animation-delay: 0.3s; }
-.animate-fade-in-up:nth-child(4) { animation-delay: 0.4s; }
-.animate-fade-in-up:nth-child(5) { animation-delay: 0.5s; }
-.animate-fade-in-up:nth-child(6) { animation-delay: 0.6s; }
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out;
+  animation-fill-mode: both;
+}
 
-/* Custom scrollbar */
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out;
+  animation-fill-mode: both;
+}
+
+.animate-glitch {
+  animation: glitch 0.3s ease-in-out;
+}
+
+.animate-neon-pulse {
+  animation: neonPulse 2s ease-in-out infinite;
+}
+
+/* Stagger animations */
+.animate-fade-in-cyber:nth-child(1) { animation-delay: 0.1s; }
+.animate-fade-in-cyber:nth-child(2) { animation-delay: 0.2s; }
+.animate-fade-in-cyber:nth-child(3) { animation-delay: 0.3s; }
+.animate-fade-in-cyber:nth-child(4) { animation-delay: 0.4s; }
+.animate-fade-in-cyber:nth-child(5) { animation-delay: 0.5s; }
+.animate-fade-in-cyber:nth-child(6) { animation-delay: 0.6s; }
+
+/* Cyberpunk Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--cyber-bg-dark);
+  border-left: 1px solid var(--cyber-border);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 4px;
+  background: linear-gradient(180deg, var(--cyber-primary), var(--cyber-secondary));
+  border-radius: 6px;
+  border: 1px solid var(--cyber-border);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a1a1a1;
+  box-shadow: 0 0 10px var(--cyber-primary);
 }
 
-/* Dark mode scrollbar */
-.dark ::-webkit-scrollbar-track {
-  background: #2d3748;
+/* Profile Picture Cyber Effect */
+.cyber-profile {
+  position: relative;
+  border: 2px solid var(--cyber-primary);
+  box-shadow: 
+    0 0 20px var(--cyber-primary),
+    inset 0 0 20px rgba(0, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
-.dark ::-webkit-scrollbar-thumb {
-  background: #4a5568;
+.cyber-profile:hover {
+  box-shadow: 
+    0 0 30px var(--cyber-primary),
+    0 0 50px var(--cyber-primary),
+    inset 0 0 30px rgba(0, 255, 255, 0.2);
+  transform: scale(1.05);
 }
 
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: #718096;
+.cyber-profile::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--cyber-primary), var(--cyber-secondary), var(--cyber-accent), var(--cyber-primary));
+  border-radius: inherit;
+  z-index: -1;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+/* Cyber Grid Background */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Additional Cyber Animations */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(120deg); }
+  66% { transform: translateY(5px) rotate(240deg); }
+  100% { transform: translateY(0px) rotate(360deg); }
+}
+
+@keyframes dataStream {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100vw); }
+}
+
+@keyframes hologram {
+  0%, 100% { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% { 
+    opacity: 0.7;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes circuitPulse {
+  0%, 100% { 
+    box-shadow: 0 0 5px var(--cyber-primary);
+    border-color: var(--cyber-primary);
+  }
+  50% { 
+    box-shadow: 0 0 20px var(--cyber-primary), 0 0 30px var(--cyber-primary);
+    border-color: var(--cyber-secondary);
+  }
+}
+
+@keyframes scanEffect {
+  0% { 
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% { 
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Cyber Hover Effects */
+.cyber-hover:hover {
+  animation: hologram 0.5s ease-in-out;
+}
+
+.cyber-pulse {
+  animation: circuitPulse 2s ease-in-out infinite;
+}
+
+/* Data stream effect */
+.data-stream::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyber-primary), transparent);
+  animation: dataStream 3s linear infinite;
+}
+
+/* Cyber text selection */
+::selection {
+  background: var(--cyber-primary);
+  color: var(--cyber-bg-dark);
+}
+
+::-moz-selection {
+  background: var(--cyber-primary);
+  color: var(--cyber-bg-dark);
+}
+
+/* Cyber focus states */
+*:focus {
+  outline: 2px solid var(--cyber-primary);
+  outline-offset: 2px;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .cyber-title {
+    font-size: 2.5rem;
+  }
+  
+  .cyber-card {
+    margin: 0.5rem;
+  }
+  
+  .cyber-grid {
+    background-size: 25px 25px;
+  }
+  
+  body::before {
+    background: 
+      radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.05) 0%, transparent 50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .cyber-title {
+    font-size: 2rem;
+  }
+  
+  .cyber-subtitle {
+    font-size: 1rem;
+  }
 }

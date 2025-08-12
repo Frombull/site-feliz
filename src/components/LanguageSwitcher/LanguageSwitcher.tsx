@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter } from '@/i18n/navigation';
 import { useLocale } from 'next-intl';
-import { Globe } from 'lucide-react';
+import { Globe, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import Image from 'next/image';
 
@@ -36,42 +36,36 @@ export function LanguageSwitcher() {
     <div className="relative inline-block text-left z-50">
       <button
         onClick={() => setOpen(prev => !prev)}
-        className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-white dark:text-gray-200 bg-zinc-800 hover:bg-zinc-700 rounded-md transition-colors"
+        className="flex items-center gap-2 px-3 py-2 text-sm font-medium border border-cyan-500/30 rounded bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 hover:text-cyan-300 transition-all group"
       >
+        <Globe size={16} className="group-hover:animate-spin" />
         {current?.flag && (
           <Image
             src={current.flag}
             alt={`${current.code} flag`}
-            width={20}
-            height={20}
-            className="rounded-sm shadow-sm"
+            width={16}
+            height={16}
+            className="rounded-sm border border-cyan-500/30"
           />
         )}
-        <span className="uppercase">{current?.code}</span>
-        <svg
-          className={`w-4 h-4 ml-1 transform transition-transform ${open ? 'rotate-180' : ''}`}
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fillRule="evenodd"
-            d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z"
-            clipRule="evenodd"
-          />
-        </svg>
+        <span className="uppercase font-mono">{current?.code}</span>
+        <ChevronDown 
+          size={14} 
+          className={`transform transition-transform ${open ? 'rotate-180' : ''}`}
+        />
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-2 w-44 rounded-md shadow-lg bg-white dark:bg-zinc-800 ring-1 ring-black ring-opacity-5">
-          <div className="py-1">
+        <div className="absolute right-0 mt-2 w-48 cyber-card border border-cyan-500/30 shadow-2xl">
+          <div className="p-2">
             {locales.map(({ code, label, flag }) => (
               <button
                 key={code}
                 onClick={() => handleChangeLocale(code)}
-                className={`flex items-center gap-2 px-4 py-2 w-full text-left text-sm ${
+                className={`flex items-center gap-3 px-3 py-2 w-full text-left text-sm rounded transition-all ${
                   code === locale
-                    ? 'bg-blue-100 dark:bg-blue-900 font-semibold text-blue-800 dark:text-blue-200'
-                    : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-zinc-700'
+                    ? 'bg-cyan-500/20 border border-cyan-500/50 text-cyan-300 font-semibold'
+                    : 'cyber-text hover:bg-cyan-500/10 hover:text-cyan-400 border border-transparent'
                 }`}
               >
                 <Image
@@ -79,11 +73,21 @@ export function LanguageSwitcher() {
                   alt={`${code} flag`}
                   width={20}
                   height={20}
-                  className="rounded-sm shadow-sm"
+                  className="rounded-sm border border-cyan-500/30"
                 />
-                {label}
+                <span className="font-medium">{label}</span>
+                {code === locale && (
+                  <div className="ml-auto w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                )}
               </button>
             ))}
+          </div>
+          
+          {/* Cyber decoration */}
+          <div className="border-t border-cyan-500/20 p-2">
+            <div className="text-xs cyber-mono text-cyan-400/50 text-center">
+              LANG.PROTOCOL.v2.0
+            </div>
           </div>
         </div>
       )}

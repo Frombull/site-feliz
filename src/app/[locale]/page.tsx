@@ -1,116 +1,132 @@
-import { Mail, Phone, Linkedin, Briefcase, Code, GraduationCap, Star, User, Download, Github, ExternalLink, Award, Calendar, ArrowUpCircle } from 'lucide-react';
+import { Mail, Phone, Briefcase, Code, GraduationCap, Star, User, Download, Github, ExternalLink, Award, Calendar, ArrowUpCircle, Terminal, Cpu, Zap, Shield } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { Footer } from '@/components/Footer/Footer';
+import { GlitchText, FloatingParticles } from '@/components/CyberEffects/CyberEffects';
 
-const IconText = ({ icon, children }) => (
-  <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
-    {icon}
-    <span className="text-sm">{children}</span>
+const CyberIconText = ({ icon, children, className = "" }) => (
+  <div className={`flex items-center gap-3 text-cyan-400 hover:text-cyan-300 transition-colors group ${className}`}>
+    <div className="p-2 border border-cyan-500/30 rounded bg-cyan-500/10 group-hover:bg-cyan-500/20 transition-all">
+      {icon}
+    </div>
+    <span className="cyber-text font-medium">{children}</span>
   </div>
 );
 
-const SectionCard = ({ title, icon, children, id }) => (
-  <div id={id} className="bg-white dark:bg-gray-800/50 mb-4 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-500 animate-fade-in-up">
-    <div className="p-6">
-      <div className="flex items-center gap-3 mb-4">
+const CyberSectionCard = ({ title, icon, children, id, className = "" }) => (
+  <div id={id} className={`cyber-card p-6 mb-6 animate-fade-in-cyber ${className}`}>
+    <div className="flex items-center gap-4 mb-6">
+      <div className="p-3 border border-cyan-500 rounded-lg bg-cyan-500/10 animate-neon-pulse">
         {icon}
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-white">{title}</h2>
       </div>
-      <div className="space-y-4">
-        {children}
-      </div>
+      <h2 className="text-2xl font-bold cyber-title">{title}</h2>
+    </div>
+    <div className="space-y-6">
+      {children}
     </div>
   </div>
 );
 
-const ProjectCard = ({ title, description, logo, githubUrl, demoUrl }) => (
-    <div className="flex items-start gap-4 p-4 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800 hover:shadow-md transition-all duration-300 group">
-        {logo && <img src={logo} alt={`${title} logo`} className="w-14 h-14 rounded-md object-contain bg-white p-1 shadow-sm" />}
-        <div className="flex-1">
-            <div className="flex items-start justify-between">
-                <div>
-                    <h3 className="font-bold text-md text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">{title}</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{description}</p>
-                </div>
-                <div className="flex gap-2 ml-4">
-                    {githubUrl && (
-                        <a href={githubUrl} target="_blank" rel="noopener noreferrer" 
-                           className="p-1.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors">
-                            <Github size={16} />
-                        </a>
-                    )}
-                    {demoUrl && (
-                        <a href={demoUrl} target="_blank" rel="noopener noreferrer" 
-                           className="p-1.5 text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                            <ExternalLink size={16} />
-                        </a>
-                    )}
-                </div>
-            </div>
+const CyberProjectCard = ({ title, description, logo, githubUrl, demoUrl }) => (
+  <div className="cyber-card p-4 group hover:animate-glitch">
+    <div className="flex items-start gap-4">
+      {logo && (
+        <div className="w-16 h-16 border border-cyan-500/30 rounded-lg bg-cyan-500/5 p-2 flex items-center justify-center">
+          <img src={logo} alt={`${title} logo`} className="w-full h-full object-contain" />
         </div>
-    </div>
-);
-
-const ExperienceCard = ({ role, company, duration, description, logo }) => (
-  <div className="flex items-start gap-4 p-4 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800 hover:shadow-md transition-all duration-300">
-      {logo && <img src={logo} alt={`${company} logo`} className="w-14 h-14 rounded-md object-contain bg-white p-1 shadow-sm" />}
+      )}
       <div className="flex-1">
-          <h3 className="font-bold text-md text-blue-600 dark:text-blue-400">{role}</h3>
-          <p className="font-semibold text-gray-700 dark:text-gray-200">{company}</p>
-          <p className="text-xs text-gray-500 dark:text-gray-400">{duration}</p>
-          <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">{description}</p>
+        <div className="flex items-start justify-between">
+          <div>
+            <h3 className="font-bold text-lg cyber-subtitle mb-2">{title}</h3>
+            <p className="cyber-text text-sm leading-relaxed">{description}</p>
+          </div>
+          <div className="flex gap-2 ml-4">
+            {githubUrl && (
+              <a href={githubUrl} target="_blank" rel="noopener noreferrer"
+                className="p-2 border border-cyan-500/30 rounded bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 hover:text-cyan-300 transition-all">
+                <Github size={18} />
+              </a>
+            )}
+            {demoUrl && (
+              <a href={demoUrl} target="_blank" rel="noopener noreferrer"
+                className="p-2 border border-cyan-500/30 rounded bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 hover:text-cyan-300 transition-all">
+                <ExternalLink size={18} />
+              </a>
+            )}
+          </div>
+        </div>
       </div>
+    </div>
   </div>
 );
 
-const SkillBadge = ({ children, category }) => {
-  const categoryColors = {
-    frontend: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300",
-    backend: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300",
-    qa: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
-    devops: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300",
-    default: "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
+const CyberExperienceCard = ({ role, company, duration, description, logo }) => (
+  <div className="cyber-card p-4 group">
+    <div className="flex items-start gap-4">
+      {logo && (
+        <div className="w-16 h-16 border border-cyan-500/30 rounded-lg bg-cyan-500/5 p-2 flex items-center justify-center">
+          <img src={logo} alt={`${company} logo`} className="w-full h-full object-contain" />
+        </div>
+      )}
+      <div className="flex-1">
+        <h3 className="font-bold text-lg cyber-subtitle">{role}</h3>
+        <p className="font-semibold text-cyan-300 text-base">{company}</p>
+        <p className="text-sm text-cyan-400/70 mb-3">{duration}</p>
+        <p className="cyber-text text-sm leading-relaxed">{description}</p>
+      </div>
+    </div>
+  </div>
+);
+
+const CyberSkillBadge = ({ children, category }) => {
+  const categoryClasses = {
+    frontend: "cyber-badge frontend",
+    backend: "cyber-badge backend",
+    qa: "cyber-badge qa",
+    devops: "cyber-badge devops",
+    default: "cyber-badge"
   };
-  
-  const colorClass = categoryColors[category] || categoryColors.default;
-  
+
+  const badgeClass = categoryClasses[category] || categoryClasses.default;
+
   return (
-    <span className={`text-sm font-medium px-2.5 py-1 rounded-full ${colorClass} hover:scale-105 transition-transform duration-200 cursor-default`}>
+    <span className={`${badgeClass} cursor-pointer hover:scale-105 transition-transform`}>
       {children}
     </span>
   );
 };
 
-// TODO: Add certificate cards
-const CertificateCard = ({ title, issuer, date, credentialId, credentialUrl }) => (
-  <div className="flex items-start gap-4 p-4 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800 hover:shadow-md transition-all duration-300 group">
-    <div className="flex-shrink-0">
-      <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center">
-        <Award className="text-white" size={24} />
+const CyberCertificateCard = ({ title, issuer, date, credentialId, credentialUrl }) => (
+  <div className="cyber-card p-4 group">
+    <div className="flex items-start gap-4">
+      <div className="flex-shrink-0">
+        <div className="w-14 h-14 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center border border-yellow-400/50">
+          <Award className="text-black" size={24} />
+        </div>
       </div>
-    </div>
-    <div className="flex-1">
-      <div className="flex items-start justify-between">
-        <div>
-          <h3 className="font-bold text-md text-gray-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{title}</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">{issuer}</p>
-          <div className="flex items-center gap-1 mt-1">
-            <Calendar size={14} className="text-gray-400" />
-            <p className="text-xs text-gray-500 dark:text-gray-400">{date}</p>
+      <div className="flex-1">
+        <div className="flex items-start justify-between">
+          <div>
+            <h3 className="font-bold text-lg cyber-subtitle">{title}</h3>
+            <p className="cyber-text font-medium">{issuer}</p>
+            <div className="flex items-center gap-2 mt-2">
+              <Calendar size={14} className="text-cyan-400" />
+              <p className="text-sm text-cyan-400/70">{date}</p>
+            </div>
+            {credentialId && (
+              <p className="text-xs text-cyan-400/50 mt-1 font-mono">
+                ID: {credentialId}
+              </p>
+            )}
           </div>
-          {credentialId && (
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-              ID: {credentialId}
-            </p>
+          {credentialUrl && (
+            <a href={credentialUrl} target="_blank" rel="noopener noreferrer"
+              className="p-2 border border-cyan-500/30 rounded bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 hover:text-cyan-300 transition-all">
+              <ExternalLink size={16} />
+            </a>
           )}
         </div>
-        {credentialUrl && (
-          <a href={credentialUrl} target="_blank" rel="noopener noreferrer" 
-             className="p-1.5 text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-            <ExternalLink size={16} />
-          </a>
-        )}
       </div>
     </div>
   </div>
@@ -127,211 +143,263 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 min-h-screen font-sans">
-      <main className="container mx-auto p-4 pt-24 md:pt-24 md:px-8">
-        {/* --- Cabeçalho --- */}
-        <header className="text-center mb-12 animate-fade-in">
-            <div className="w-32 h-32 rounded-full mx-auto mb-6 shadow-lg bg-gradient-to-tr from-blue-400 to-purple-500 hover:scale-105 transition-transform duration-300">
-            <Image 
-                src="/profile_picture.png" 
-                alt={t('profilePictureAlt')}
-                width={256}
-                height={256}
-                className="w-full h-full rounded-full object-cover border-4 border-white dark:border-gray-800"
-            />
-            </div>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 dark:text-white mb-2">
-            {t('title')}
-          </h1>
-          <p className="text-lg text-blue-600 dark:text-blue-400 mt-2 font-medium mb-6">
-          {t('subtitle')}
-          </p>
-          <div className="mt-6 flex justify-center items-center flex-wrap gap-x-6 gap-y-2 mb-8">
-            <IconText icon={<Mail size={16} />}>
-              marco.renzo@ges.inatel.br
-            </IconText>
+    <div className="min-h-screen cyber-grid">
+      {/* Floating Particles */}
+      <FloatingParticles />
 
-            <a href="https://linkedin.com/in/marcoditoro" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors">
-              <IconText icon={<Linkedin size={16} />}>
+      {/* Cyber Background Effects */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-50 animate-pulse"></div>
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-pink-400 to-transparent opacity-50 animate-pulse" style={{ animationDelay: '1s' }}></div>
+      </div>
+
+      <main className="container mx-auto p-4 pt-24 md:pt-28 md:px-8 relative z-10">
+        {/* --- Cyber Header --- */}
+        <header className="text-center mb-16 animate-fade-in-cyber">
+          <div className="relative inline-block mb-8">
+            <div className="w-40 h-40 rounded-full mx-auto cyber-profile">
+              <Image
+                src="/profile_picture.png"
+                alt={t('profilePictureAlt')}
+                width={320}
+                height={320}
+                className="w-full h-full rounded-full object-cover"
+              />
+            </div>
+            {/* Floating particles around profile */}
+            <div className="absolute -top-2 -right-2 w-4 h-4 bg-cyan-400 rounded-full animate-ping"></div>
+            <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-pink-400 rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-extrabold cyber-title mb-4">
+            <GlitchText>{t('title')}</GlitchText>
+          </h1>
+          <p className="text-xl md:text-2xl cyber-subtitle mb-8">
+            <GlitchText className="cyber-hover">{t('subtitle')}</GlitchText>
+          </p>
+
+          <div className="flex justify-center items-center flex-wrap gap-6 mb-12">
+            <CyberIconText icon={<Mail size={20} />}>
+              marco.renzo@ges.inatel.br
+            </CyberIconText>
+            <a href="https://linkedin.com/in/marcoditoro" target="_blank" rel="noopener noreferrer">
+              <CyberIconText icon={<ExternalLink size={20} />}>
                 linkedin.com/in/marcoditoro
-              </IconText>
+              </CyberIconText>
             </a>
-            
           </div>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* --- Coluna Esquerda --- */}
+          {/* --- Main Content --- */}
           <div className="lg:col-span-2 space-y-8">
-            {/* --- Sobre Mim --- */}
-            <SectionCard title={t('aboutMe')} icon={<User className="text-blue-500" />} id="about">
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                {t('aboutMeP1')}
-              </p>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                {t('aboutMeP2')}
-              </p>
-            </SectionCard>
+            {/* --- About Me --- */}
+            <CyberSectionCard
+              title={t('aboutMe')}
+              icon={<User className="text-cyan-400" size={24} />}
+              id="about"
+              className="animate-slide-in-left"
+            >
+              <div className="space-y-4">
+                <p className="cyber-text text-lg leading-relaxed">
+                  {t('aboutMeP1')}
+                </p>
+                <p className="cyber-text text-lg leading-relaxed">
+                  {t('aboutMeP2')}
+                </p>
+              </div>
+            </CyberSectionCard>
 
-            {/* --- Experiência --- */}
-            <SectionCard title={t('professionalExperience')} icon={<Briefcase className="text-blue-500" />} id="experience">
-              <ExperienceCard
-                  role={t('experience1.role')}
-                  company={t('experience1.company')}
-                  duration={t('experience1.duration')}
-                  description={t('experience1.description')}
-                  logo="/logos/VBL_LOGO_2.png"
-                />
-              <ExperienceCard
+            {/* --- Experience --- */}
+            <CyberSectionCard
+              title={t('professionalExperience')}
+              icon={<Briefcase className="text-cyan-400" size={24} />}
+              id="experience"
+              className="animate-slide-in-left"
+            >
+              <CyberExperienceCard
+                role={t('experience1.role')}
+                company={t('experience1.company')}
+                duration={t('experience1.duration')}
+                description={t('experience1.description')}
+                logo="/logos/VBL_LOGO_2.png"
+              />
+              <CyberExperienceCard
                 role={t('experience2.role')}
                 company={t('experience2.company')}
                 duration={t('experience2.duration')}
                 description={t('experience2.description')}
                 logo="/logos/WG_LOGO.jpg"
               />
-            </SectionCard>
+            </CyberSectionCard>
 
-            {/* --- Projetos --- */}
-            <SectionCard title={t('projects')} icon={<Code className="text-blue-500" />} id="projects">
-                <ProjectCard 
-                        title={t('project1.title')}
-                        description={t('project1.description')}
-                        logo="/logos/INATEL_LOGO.png"
-                        githubUrl="https://github.com/Frombull" // TODO: Add url
-                        demoUrl="https://pixelforge.com" // TODO: Add url
-                    />
-                <ProjectCard 
-                    title={t('project2.title')}
-                    description={t('project2.description')}
-                    logo="/logos/ETE_LOGO.jpg"
-                    githubUrl="https://github.com/Frombull" // TODO: Add url
-                    demoUrl="" // TODO: Add url
-                />
-                <ProjectCard 
-                    title={t('project3.title')}
-                    description={t('project3.description')}
-                    logo="/logos/ETE_LOGO.jpg"
-                    githubUrl="https://github.com/Frombull" // TODO: Add url
-                    demoUrl="" // TODO: Add url
-                />
-                <ProjectCard 
-                    title={t('project4.title')}
-                    description={t('project4.description')}
-                    logo="/logos/ETE_LOGO.jpg"
-                    githubUrl="https://github.com/Frombull" // TODO: Add url 
-                    demoUrl="" // TODO: Add url
-                />
-            </SectionCard>
+            {/* --- Projects --- */}
+            <CyberSectionCard
+              title={t('projects')}
+              icon={<Code className="text-cyan-400" size={24} />}
+              id="projects"
+              className="animate-slide-in-left"
+            >
+              <CyberProjectCard
+                title={t('project1.title')}
+                description={t('project1.description')}
+                logo="/logos/INATEL_LOGO.png"
+                githubUrl="https://github.com/Frombull"
+                demoUrl="https://pixelforge.com"
+              />
+              <CyberProjectCard
+                title={t('project2.title')}
+                description={t('project2.description')}
+                logo="/logos/ETE_LOGO.jpg"
+                githubUrl="https://github.com/Frombull"
+                demoUrl=""
+              />
+              <CyberProjectCard
+                title={t('project3.title')}
+                description={t('project3.description')}
+                logo="/logos/ETE_LOGO.jpg"
+                githubUrl="https://github.com/Frombull"
+                demoUrl=""
+              />
+              <CyberProjectCard
+                title={t('project4.title')}
+                description={t('project4.description')}
+                logo="/logos/ETE_LOGO.jpg"
+                githubUrl="https://github.com/Frombull"
+                demoUrl=""
+              />
+            </CyberSectionCard>
           </div>
 
-          {/* --- Coluna Direita --- */}
+          {/* --- Sidebar --- */}
           <div className="space-y-8">
-            {/* --- Interesses / Skills --- */}
-            <SectionCard title={t('interestsAndSkills')} icon={<Star className="text-blue-500" />} id="skills">
-                <div className="space-y-4">
-                    <div>
-                        <h4 className="font-semibold text-gray-800 dark:text-white mb-2 flex items-center gap-2">
-                            <span className="w-3 h-3 bg-red-500 rounded-full"></span>
-                            {t('skills.frontend')}
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                            <SkillBadge category="frontend">React</SkillBadge>
-                            <SkillBadge category="frontend">Next.js</SkillBadge>
-                            <SkillBadge category="frontend">Tailwind CSS</SkillBadge>
-                            <SkillBadge category="frontend">Blazor</SkillBadge>
-                            <SkillBadge category="frontend">JavaScript</SkillBadge>
-                            <SkillBadge category="frontend">TypeScript</SkillBadge>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h4 className="font-semibold text-gray-800 dark:text-white mb-2 flex items-center gap-2">
-                            <span className="w-3 h-3 bg-green-500 rounded-full"></span>
-                            {t('skills.backend')}
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                            <SkillBadge category="backend">C#</SkillBadge>
-                            <SkillBadge category="backend">Python</SkillBadge>
-                            <SkillBadge category="backend">Node.js</SkillBadge>
-                            <SkillBadge category="backend">SQL Server</SkillBadge>
-                            <SkillBadge category="backend">ABP Framework</SkillBadge>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h4 className="font-semibold text-gray-800 dark:text-white mb-2 flex items-center gap-2">
-                            <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
-                            {t('skills.qaAndTesting')}
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                            <SkillBadge category="qa">Cypress</SkillBadge>
-                            <SkillBadge category="qa">Postman</SkillBadge>
-                            <SkillBadge category="qa">Selenium</SkillBadge>
-                            <SkillBadge category="qa">{t('skills.unitTesting')}</SkillBadge>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h4 className="font-semibold text-gray-800 dark:text-white mb-2 flex items-center gap-2">
-                            <span className="w-3 h-3 bg-purple-500 rounded-full"></span>
-                            {t('skills.devopsAndCloud')}
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                            <SkillBadge category="devops">Docker</SkillBadge>
-                            <SkillBadge category="devops">AWS</SkillBadge>
-                            <SkillBadge category="devops">Kubernetes</SkillBadge>
-                            <SkillBadge category="devops">Jenkins</SkillBadge>
-                            <SkillBadge category="devops">Git</SkillBadge>
-                        </div>
-                    </div>
+            {/* --- Skills --- */}
+            <CyberSectionCard
+              title={t('interestsAndSkills')}
+              icon={<Star className="text-cyan-400" size={24} />}
+              id="skills"
+              className="animate-slide-in-right"
+            >
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-semibold cyber-subtitle mb-3 flex items-center gap-3">
+                    <div className="w-3 h-3 bg-pink-500 rounded-full animate-pulse"></div>
+                    {t('skills.frontend')}
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    <CyberSkillBadge category="frontend">React</CyberSkillBadge>
+                    <CyberSkillBadge category="frontend">Next.js</CyberSkillBadge>
+                    <CyberSkillBadge category="frontend">Tailwind CSS</CyberSkillBadge>
+                    <CyberSkillBadge category="frontend">Blazor</CyberSkillBadge>
+                    <CyberSkillBadge category="frontend">JavaScript</CyberSkillBadge>
+                    <CyberSkillBadge category="frontend">TypeScript</CyberSkillBadge>
+                  </div>
                 </div>
-            </SectionCard>
 
-            {/* --- Educação --- */}
-            <SectionCard title={t('education')} icon={<GraduationCap className="text-blue-500" />} id="education">
-              <div>
-                <h3 className="font-bold text-md text-gray-800 dark:text-white">{t('education1.degree')}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">{t('education1.institution')}</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">{t('education1.period')}</p>
-              </div>
-              <div className="border-t border-gray-200 dark:border-gray-700 my-4"></div>
-              <div>
-                <h3 className="font-bold text-md text-gray-800 dark:text-white">{t('education2.degree')}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">{t('education2.institution')}</p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">{t('education2.period')}</p>
-              </div>
-            </SectionCard>
-
-            {/* --- QR Code --- */}
-                <SectionCard title={t('linkedin')} icon={<Linkedin className="text-blue-500" />} id="linkedin">
-                <div className="flex justify-center p-2 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                    <a href="https://linkedin.com/in/marcoditoro" target="_blank" rel="noopener noreferrer" title={t('linkedinQRCodeTitle')}>
-                        <img 
-                            src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://linkedin.com/in/marcoditoro" 
-                            alt={t('linkedinQRCodeAlt')}
-                            className="rounded-lg shadow-md w-36 h-36 hover:scale-105 transition-transform duration-300"
-                        />
-                    </a>
+                <div>
+                  <h4 className="font-semibold cyber-subtitle mb-3 flex items-center gap-3">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    {t('skills.backend')}
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    <CyberSkillBadge category="backend">C#</CyberSkillBadge>
+                    <CyberSkillBadge category="backend">Python</CyberSkillBadge>
+                    <CyberSkillBadge category="backend">Node.js</CyberSkillBadge>
+                    <CyberSkillBadge category="backend">SQL Server</CyberSkillBadge>
+                    <CyberSkillBadge category="backend">ABP Framework</CyberSkillBadge>
+                  </div>
                 </div>
-            </SectionCard>
+
+                <div>
+                  <h4 className="font-semibold cyber-subtitle mb-3 flex items-center gap-3">
+                    <div className="w-3 h-3 bg-cyan-500 rounded-full animate-pulse"></div>
+                    {t('skills.qaAndTesting')}
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    <CyberSkillBadge category="qa">Cypress</CyberSkillBadge>
+                    <CyberSkillBadge category="qa">Postman</CyberSkillBadge>
+                    <CyberSkillBadge category="qa">Selenium</CyberSkillBadge>
+                    <CyberSkillBadge category="qa">{t('skills.unitTesting')}</CyberSkillBadge>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold cyber-subtitle mb-3 flex items-center gap-3">
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full animate-pulse"></div>
+                    {t('skills.devopsAndCloud')}
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    <CyberSkillBadge category="devops">Docker</CyberSkillBadge>
+                    <CyberSkillBadge category="devops">AWS</CyberSkillBadge>
+                    <CyberSkillBadge category="devops">Kubernetes</CyberSkillBadge>
+                    <CyberSkillBadge category="devops">Jenkins</CyberSkillBadge>
+                    <CyberSkillBadge category="devops">Git</CyberSkillBadge>
+                  </div>
+                </div>
+              </div>
+            </CyberSectionCard>
+
+            {/* --- Education --- */}
+            <CyberSectionCard
+              title={t('education')}
+              icon={<GraduationCap className="text-cyan-400" size={24} />}
+              id="education"
+              className="animate-slide-in-right"
+            >
+              <div className="space-y-4">
+                <div className="cyber-card p-4">
+                  <h3 className="font-bold text-lg cyber-subtitle">{t('education1.degree')}</h3>
+                  <p className="cyber-text">{t('education1.institution')}</p>
+                  <p className="text-sm text-cyan-400/70">{t('education1.period')}</p>
+                </div>
+                <div className="cyber-card p-4">
+                  <h3 className="font-bold text-lg cyber-subtitle">{t('education2.degree')}</h3>
+                  <p className="cyber-text">{t('education2.institution')}</p>
+                  <p className="text-sm text-cyan-400/70">{t('education2.period')}</p>
+                </div>
+              </div>
+            </CyberSectionCard>
+
+            {/* --- LinkedIn QR --- */}
+            <CyberSectionCard
+              title={t('linkedin')}
+              icon={<ExternalLink className="text-cyan-400" size={24} />}
+              id="linkedin"
+              className="animate-slide-in-right"
+            >
+              <div className="flex justify-center p-4">
+                <a href="https://linkedin.com/in/marcoditoro" target="_blank" rel="noopener noreferrer" title={t('linkedinQRCodeTitle')}>
+                  <div className="p-4 border border-cyan-500/30 rounded-lg bg-cyan-500/5 hover:bg-cyan-500/10 transition-all">
+                    <img
+                      src="/qr-code-linkedin.svg"
+                      alt={t('linkedinQRCodeAlt')}
+                      className="rounded-lg w-36 h-36 hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                </a>
+              </div>
+            </CyberSectionCard>
 
             {/* --- Download CV --- */}
-            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-              <h4 className="font-semibold text-gray-800 dark:text-white mb-4">{t('contactSection.downloadTitle')}</h4>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+            <div className="cyber-card p-6 animate-slide-in-right">
+              <h4 className="font-semibold cyber-subtitle mb-4 flex items-center gap-3">
+                <Shield className="text-cyan-400" size={20} />
+                {t('contactSection.downloadTitle')}
+              </h4>
+              <p className="cyber-text text-sm mb-6 leading-relaxed">
                 {t('contactSection.downloadDescription')}
               </p>
               <a href="/CV_Marco_Di_Toro.pdf" download="CV_Marco_Di_Toro.pdf" className="w-full">
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2">
-                  <Download size={18} />
+                <button className="cyber-button w-full flex items-center justify-center gap-3">
+                  <Download size={20} />
                   {t('contactSection.downloadButton')}
                 </button>
               </a>
             </div>
           </div>
         </div>
+
         <Footer />
-        
       </main>
     </div>
   );
