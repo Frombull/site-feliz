@@ -210,5 +210,26 @@
       "continueWithGoogle": "Continue with Google",
       "invalidCredentials": "Invalid credentials. Please check your email and password.",
       "or": "or"
+    },
+    "SignupPage": {
+      "title": "Create Account",
+      "nameLabel": "Name",
+      "namePlaceholder": "Username",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "E-mail",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Password",
+      "confirmPasswordLabel": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm Password",
+      "signupButton": "Create Account",
+      "loading": "Creating...",
+      "alreadyHaveAccount": "Already have an account? Sign in",
+      "backToHome": "Back to Home",
+      "passwordMismatch": "Passwords do not match.",
+      "emailAlreadyExists": "This email is already registered. Please use a different email or try logging in.",
+      "requiredFields": "Name, email and password are required.",
+      "networkError": "A network error occurred.",
+      "accountCreated": "Account created successfully! You will be redirected to login.",
+      "genericError": "An error occurred."
     }
   }

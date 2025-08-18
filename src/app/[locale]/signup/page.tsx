@@ -1,7 +1,7 @@
 'use client';
 
 import { Mail, Lock, UserPlus, User } from 'lucide-react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -39,6 +39,7 @@ const InputWithIcon = ({ icon, type, placeholder, id, value, onChange }: { icon:
 
 export default function SignupPage() {
     const locale = useLocale();
+    const t = useTranslations('SignupPage');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -53,7 +54,7 @@ export default function SignupPage() {
         setSuccess('');
 
         if (password !== confirmPassword) {
-            setError('As senhas não coincidem.');
+            setError(t('passwordMismatch'));
             return;
         }
 
@@ -65,21 +66,21 @@ export default function SignupPage() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ name, email, password }),
+                body: JSON.stringify({ name, email, password, locale }),
             });
 
             const data = await res.json();
 
             if (!res.ok) {
-                setError(data.error || 'Ocorreu um erro.');
+                setError(data.error || t('genericError'));
             } else {
-                setSuccess('Conta criada com sucesso! Você será redirecionado para o login.');
+                setSuccess(t('accountCreated'));
                 setTimeout(() => {
                     window.location.href = `/${locale}/login`;
                 }, 2000);
             }
         } catch (error) {
-            setError('Ocorreu um erro de rede.');
+            setError(t('networkError'));
         } finally {
             setLoading(false);
         }
@@ -89,7 +90,7 @@ export default function SignupPage() {
     <div className="bg-gray-100 dark:bg-gray-900 min-h-screen font-sans flex items-center justify-center">
       <main className="container mx-auto p-4 md:p-8 flex justify-center">
         <div className="w-full max-w-md">
-           <SectionCard title="Criar Conta" icon={<UserPlus className="text-blue-500" />}>
+           <SectionCard title={t('title')} icon={<UserPlus className="text-blue-500" />}>
                 <form className="space-y-6" onSubmit={handleSubmit}>
                     {error && <p className="text-red-500 text-center">{error}</p>}
                     {success && <p className="text-green-500 text-center">{success}</p>}
@@ -98,7 +99,7 @@ export default function SignupPage() {
                         icon={<User size={16} />}
                         type="text"
                         id="name-input"
-                        placeholder="Nome de usuário"
+                        placeholder={t('namePlaceholder')}
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
@@ -107,7 +108,7 @@ export default function SignupPage() {
                         icon={<Mail size={16} />}
                         type="email"
                         id="email-input"
-                        placeholder="E-mail"
+                        placeholder={t('emailPlaceholder')}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
@@ -117,7 +118,7 @@ export default function SignupPage() {
                         icon={<Lock size={16} />}
                         type="password"
                         id="password-input"
-                        placeholder="Senha"
+                        placeholder={t('passwordPlaceholder')}
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
@@ -127,7 +128,7 @@ export default function SignupPage() {
                         icon={<Lock size={16} />}
                         type="password"
                         id="confirm-password-input"
-                        placeholder="Confirmar Senha"
+                        placeholder={t('confirmPasswordPlaceholder')}
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     />
@@ -138,20 +139,20 @@ export default function SignupPage() {
                         className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-800 transition-colors duration-300 disabled:opacity-50"
                         disabled={loading}
                     >
-                        {loading ? 'Criando...' : 'Criar conta'}
+                        {loading ? t('loading') : t('signupButton')}
                     </button>
 
                     {/* --- Links --- */}
                     <div className="text-sm text-center font-medium text-gray-500 dark:text-gray-400">
                          <Link href={`/${locale}/login`} className="text-blue-600 hover:underline dark:text-blue-400">
-                            Já tem uma conta? Faça login
+                            {t('alreadyHaveAccount')}
                         </Link>
                     </div>
                 </form>
             </SectionCard>
              <footer className="text-center mt-8">
                 <p className="text-gray-500 dark:text-gray-400 text-sm">
-                   <Link href="/" className="hover:underline">Voltar para a Home</Link>
+                   <Link href="/" className="hover:underline">{t('backToHome')}</Link>
                 </p>
             </footer>
         </div>

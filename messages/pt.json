@@ -210,5 +210,26 @@
     "continueWithGoogle": "Continuar com Google",
     "invalidCredentials": "Credenciais inválidas. Verifique seu e-mail e senha.",
     "or": "ou"
+  },
+  "SignupPage": {
+    "title": "Criar Conta",
+    "nameLabel": "Nome",
+    "namePlaceholder": "Nome de usuário",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "E-mail",
+    "passwordLabel": "Senha",
+    "passwordPlaceholder": "Senha",
+    "confirmPasswordLabel": "Confirmar Senha",
+    "confirmPasswordPlaceholder": "Confirmar Senha",
+    "signupButton": "Criar conta",
+    "loading": "Criando...",
+    "alreadyHaveAccount": "Já tem uma conta? Faça login",
+    "backToHome": "Voltar para a Home",
+    "passwordMismatch": "As senhas não coincidem.",
+    "emailAlreadyExists": "Este e-mail já está cadastrado. Use um e-mail diferente ou tente fazer login.",
+    "requiredFields": "Nome, e-mail e senha são obrigatórios.",
+    "networkError": "Ocorreu um erro de rede.",
+    "accountCreated": "Conta criada com sucesso! Você será redirecionado para o login.",
+    "genericError": "Ocorreu um erro."
   }
 }
