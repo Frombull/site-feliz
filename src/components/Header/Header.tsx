@@ -3,23 +3,13 @@
 import { usePathname, Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher/LanguageSwitcher";
 import { useTranslations } from 'next-intl';
-import { Moon, Sun, User as UserIcon, LogOut } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
-import { useSession, signOut } from "next-auth/react";
-import Image from 'next/image';
+import { Moon, Sun } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export function Header() {
     const pathname = usePathname();
     const t = useTranslations('Header');
     const [darkMode, setDarkMode] = useState(false);
-    const { data: session } = useSession();
-    const [menuOpen, setMenuOpen] = useState(false);
-    const menuRef = useRef<HTMLDivElement>(null);
-    const [imageError, setImageError] = useState(false);
-
-    useEffect(() => {
-        setImageError(false);
-    }, [session?.user?.image]);
 
     useEffect(() => {
         // Saved theme preference or default to system preference
@@ -35,18 +25,7 @@ export function Header() {
         }
     }, []);
 
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-                setMenuOpen(false);
-            }
-        };
 
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, [menuRef]);
 
     const toggleDarkMode = () => {
         const newDarkMode = !darkMode;
@@ -73,7 +52,7 @@ export function Header() {
             <div className="flex items-center justify-between w-full mx-auto max-w-7xl px-4 md:px-6 py-4">
                 {/* Logo */}
                 <Link href="/" className="text-xl font-bold text-gray-900 dark:text-white tracking-tight hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                    Site Feliz :)
+                    Work In Progress :)
                 </Link>
 
                 {/* Navigation */}
@@ -142,47 +121,6 @@ export function Header() {
                     </button>
 
                     <LanguageSwitcher />
-
-                    {session ? (
-                        <div className="relative" ref={menuRef}>
-                            <button onClick={() => setMenuOpen(!menuOpen)} className="flex items-center gap-2 rounded-full p-1 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors hover:cursor-pointer">
-                                <Image 
-                                    src={imageError ? '/default-profile-picture.png' : session.user?.image || '/default-profile-picture.png'} 
-                                    onError={() => setImageError(true)}
-                                    alt="User profile" 
-                                    width={32} 
-                                    height={32} 
-                                    className="rounded-full"
-                                />
-                                {session.user?.name && (
-                                    <span className="hidden sm:inline text-sm font-medium text-gray-700 dark:text-gray-200 pr-2">
-                                        {session.user.name}
-                                    </span>
-                                )}
-                            </button>
-                            {menuOpen && (
-                                <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-50">
-                                    <div className="px-4 py-2 text-sm text-gray-700 dark:text-gray-200">
-                                        <p className="font-semibold">{session.user?.name || 'User'}</p>
-                                        <p className="text-xs text-gray-500 truncate">{session.user?.email}</p>
-                                    </div>
-                                    <div className="border-t border-gray-200 dark:border-gray-700"></div>
-                                    <Link href="/profile" className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-colors">
-                                        <UserIcon size={16} />
-                                        {t('profile')}
-                                    </Link>
-                                    <button onClick={() => signOut({ callbackUrl: '/' })} className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer transition-colors">
-                                        <LogOut size={16} />
-                                        {t('logout')}
-                                    </button>
-                                </div>
-                            )}
-                        </div>
-                    ) : (
-                        <Link href="/login" className="px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                            {t('login')}
-                        </Link>
-                    )}
                 </div>
             </div>
         </header>

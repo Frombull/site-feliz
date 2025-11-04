@@ -5,24 +5,7 @@
     "projects": "Projetos",
     "skills": "Habilidades",
     "education": "Formação",
-    "contact": "Contato",
-    "login": "Login",
-    "logout": "Sair",
-    "profile": "Perfil"
-  },
-  "Profile": {
-    "title": "Meu Perfil",
-    "name": "Nome",
-    "nameLabel": "Nome",
-    "namePlaceholder": "Digite seu nome",
-    "emailLabel": "Email",
-    "emailPlaceholder": "Digite seu endereço de email",
-    "image": "Foto de Perfil",
-    "imageTypeError": "Tipo de imagem inválido. Selecione um arquivo PNG, JPG ou WEBP.",
-    "imageSizeError": "O tamanho da imagem é muito grande. Selecione um arquivo com menos de 1MB.",
-    "save": "Salvar Alterações",
-    "saving": "Salvando...",
-    "loading": "Carregando..."
+    "contact": "Contato"
   },
   "HomePage": {
     "title": "Marco Di Toro",
@@ -110,126 +93,90 @@
   },
   "PrivacyPolicy": {
     "title": "Política de Privacidade",
-    "introduction": "Esta Política de Privacidade descreve como suas informações pessoais são coletadas, usadas e compartilhadas quando você visita este site.",
+    "introduction": "Este é um site de portfólio pessoal criado para apresentar meu currículo e projetos profissionais.",
     "informationWeCollect": {
       "title": "Informações que Coletamos",
-      "p1": "Como este é um site de portfólio simples, não coletamos ativamente informações pessoais dos visitantes. Podemos coletar informações não pessoais que seu navegador envia, como seu endereço IP, tipo de navegador e as páginas que você visita."
+      "p1": "Este site não coleta, armazena ou processa nenhuma informação pessoal dos visitantes. Não há formulários de contato, sistemas de login ou qualquer mecanismo de coleta de dados."
     },
     "howWeUseYourInformation": {
-      "title": "Como Usamos Suas Informações",
-      "p1": "Qualquer informação não pessoal coletada é usada exclusivamente com o propósito de analisar o tráfego do site e melhorar a experiência do usuário. Não vendemos ou compartilhamos essas informações com terceiros."
+      "title": "Navegação",
+      "p1": "Você pode navegar livremente por este site sem fornecer qualquer informação pessoal. Todas as informações exibidas são públicas e relacionadas ao meu perfil profissional."
     },
     "cookies": {
       "title": "Cookies",
-      "p1": "Usamos cookies para melhorar sua experiência. Você pode optar por desativar os cookies nas configurações do seu navegador, mas isso pode afetar a funcionalidade do site."
+      "p1": "Este site utiliza apenas cookies essenciais para funcionalidades básicas, como preferência de idioma e tema (modo claro/escuro). Estes cookies são armazenados localmente no seu navegador e não são compartilhados com terceiros."
     },
     "thirdPartyServices": {
       "title": "Serviços de Terceiros",
-      "p1": "Este site não utiliza serviços de terceiros que coletam informações pessoais."
+      "p1": "Este site não utiliza serviços de terceiros para análise, rastreamento ou publicidade. Não há integração com Google Analytics, Facebook Pixel ou similares."
     },
     "security": {
       "title": "Segurança",
-      "p1": "Tomamos precauções razoáveis para proteger suas informações. No entanto, nenhum método de transmissão pela Internet é 100% seguro."
+      "p1": "Como não coletamos dados pessoais, não há riscos relacionados ao armazenamento ou vazamento de informações dos visitantes."
     },
     "changesToThisPolicy": {
       "title": "Alterações a Esta Política",
-      "p1": "Podemos atualizar esta política de privacidade de tempos em tempos. Iremos notificá-lo sobre quaisquer alterações, publicando a nova política nesta página."
+      "p1": "Esta política pode ser atualizada ocasionalmente. Quaisquer alterações serão publicadas nesta página."
     },
     "contactUs": {
       "title": "Contato",
-      "p1": "Se você tiver alguma dúvida sobre esta Política de Privacidade, entre em contato comigo."
+      "p1": "Se você tiver alguma dúvida sobre esta Política de Privacidade, pode entrar em contato através das informações disponíveis na seção de contato do site."
     }
   },
   "TermsOfService": {
     "title": "Termos de Serviço",
-    "introduction": "Ao acessar este site, você concorda em cumprir estes termos de serviço, todas as leis e regulamentos aplicáveis ​​e concorda que é responsável pelo cumprimento de quaisquer leis locais aplicáveis.",
+    "introduction": "Este é um site de portfólio pessoal de acesso público. Ao acessar este site, você concorda com os seguintes termos.",
     "useOfWebsite": {
       "title": "Uso do Site",
-      "p1": "Este site é para seu uso pessoal e não comercial. Você não pode modificar, copiar, distribuir, transmitir, exibir, executar, reproduzir, publicar, licenciar, criar trabalhos derivados, transferir ou vender qualquer informação obtida neste site."
+      "p1": "Este site é disponibilizado gratuitamente para fins informativos. Você pode visualizar e navegar pelo conteúdo livremente. O conteúdo apresentado destina-se exclusivamente a demonstrar minha experiência profissional e projetos."
     },
     "intellectualProperty": {
       "title": "Propriedade Intelectual",
-      "p1": "Todo o conteúdo deste site, incluindo textos, gráficos, logotipos e imagens, é propriedade do proprietário do site e está protegido por leis de propriedade intelectual."
+      "p1": "O conteúdo deste site, incluindo textos, imagens e design, é de minha autoria. Projetos e trabalhos mencionados podem ter direitos compartilhados com empresas ou instituições onde foram desenvolvidos."
     },
     "disclaimer": {
       "title": "Isenção de Responsabilidade",
-      "p1": "Os materiais neste site são fornecidos 'como estão'. O proprietário do site não oferece garantias, expressas ou implícitas, e por meio deste isenta e nega todas as outras garantias."
+      "p1": "As informações neste site são fornecidas 'como estão' para fins informativos. Embora eu me esforce para manter as informações atualizadas e precisas, não ofereço garantias sobre a completude ou exatidão do conteúdo."
     },
     "limitationOfLiability": {
       "title": "Limitação de Responsabilidade",
-      "p1": "Em nenhum caso o proprietário do site será responsável por quaisquer danos decorrentes do uso ou da incapacidade de usar os materiais neste site."
+      "p1": "Este site é apenas um portfólio informativo. Não sou responsável por quaisquer decisões tomadas com base nas informações aqui apresentadas."
     },
     "governingLaw": {
       "title": "Lei Aplicável",
-      "p1": "Estes termos e condições são regidos e interpretados de acordo com as leis da jurisdição do proprietário do site, e você se submete irrevogavelmente à jurisdição exclusiva dos tribunais nesse Estado ou localidade."
+      "p1": "Estes termos são regidos pelas leis brasileiras."
     },
     "changesToTheseTerms": {
       "title": "Alterações a Estes Termos",
-      "p1": "O proprietário do site pode revisar estes termos de serviço para seu site a qualquer momento, sem aviso prévio."
+      "p1": "Estes termos podem ser atualizados ocasionalmente. Alterações serão publicadas nesta página."
     },
     "contactUs": {
       "title": "Contato",
-      "p1": "Se você tiver alguma dúvida sobre estes Termos de Serviço, entre em contato comigo."
+      "p1": "Se você tiver alguma dúvida sobre estes Termos de Serviço, pode entrar em contato através das informações disponíveis na seção de contato do site."
     }
   },
   "CookiesPolicy": {
     "title": "Política de Cookies",
-    "introduction": "Esta Política de Cookies explica o que são cookies e como os usamos neste site.",
+    "introduction": "Esta Política de Cookies explica como este site utiliza cookies para melhorar sua experiência de navegação.",
     "whatAreCookies": {
       "title": "O que são Cookies?",
-      "p1": "Cookies são pequenos arquivos de texto que são colocados no seu computador ou dispositivo móvel quando você visita um site. Eles são amplamente utilizados para fazer os sites funcionarem de forma mais eficiente e para fornecer informações aos proprietários do site."
+      "p1": "Cookies são pequenos arquivos de texto armazenados no seu navegador quando você visita um site. Eles permitem que o site lembre suas preferências e configurações."
     },
     "howWeUseCookies": {
       "title": "Como Usamos os Cookies",
-      "p1": "Usamos cookies para melhorar a experiência do usuário em nosso site. Por exemplo, usamos cookies para lembrar sua preferência de idioma. Não usamos cookies para fins de rastreamento ou publicidade."
+      "p1": "Este site utiliza apenas cookies essenciais armazenados localmente no seu navegador para: (1) Lembrar sua preferência de idioma (português ou inglês), (2) Lembrar sua preferência de tema (modo claro ou escuro). Estes cookies não rastreiam sua atividade, não coletam dados pessoais e não são compartilhados com terceiros."
     },
     "managingCookies": {
       "title": "Gerenciando Cookies",
-      "p1": "Você pode controlar e/ou excluir os cookies como desejar. Você pode excluir todos os cookies que já estão no seu computador e pode configurar a maioria dos navegadores para impedir que eles sejam colocados. Se você fizer isso, no entanto, talvez seja necessário ajustar manualmente algumas preferências sempre que visitar um site, e alguns serviços e funcionalidades podem não funcionar."
+      "p1": "Você pode limpar os cookies do seu navegador a qualquer momento através das configurações. Se você desabilitar os cookies, suas preferências de idioma e tema não serão salvas entre as visitas ao site."
     },
     "changesToThisPolicy": {
       "title": "Alterações a Esta Política",
-      "p1": "Podemos atualizar nossa Política de Cookies de tempos em tempos. Iremos notificá-lo sobre quaisquer alterações, publicando a nova Política de Cookies nesta página."
+      "p1": "Esta política pode ser atualizada ocasionalmente. Alterações serão publicadas nesta página."
     },
     "contactUs": {
       "title": "Contato",
-      "p1": "Se você tiver alguma dúvida sobre nosso uso de cookies, entre em contato comigo."
+      "p1": "Se você tiver alguma dúvida sobre o uso de cookies neste site, pode entrar em contato através das informações disponíveis na seção de contato."
     }
-  },
-  "LoginPage": {
-    "title": "Login",
-    "emailLabel": "E-mail",
-    "passwordLabel": "Senha",
-    "emailPlaceholder": "E-mail",
-    "passwordPlaceholder": "Senha",
-    "loginButton": "Entrar",
-    "loading": "Entrando...",
-    "forgotPassword": "Esqueceu a senha?",
-    "createAccount": "Criar uma conta",
-    "backToHome": "Voltar para a Home",
-    "continueWithGoogle": "Continuar com Google",
-    "invalidCredentials": "Credenciais inválidas. Verifique seu e-mail e senha.",
-    "or": "ou"
-  },
-  "SignupPage": {
-    "title": "Criar Conta",
-    "nameLabel": "Nome",
-    "namePlaceholder": "Nome de usuário",
-    "emailLabel": "E-mail",
-    "emailPlaceholder": "E-mail",
-    "passwordLabel": "Senha",
-    "passwordPlaceholder": "Senha",
-    "confirmPasswordLabel": "Confirmar Senha",
-    "confirmPasswordPlaceholder": "Confirmar Senha",
-    "signupButton": "Criar conta",
-    "loading": "Criando...",
-    "alreadyHaveAccount": "Já tem uma conta? Faça login",
-    "backToHome": "Voltar para a Home",
-    "passwordMismatch": "As senhas não coincidem.",
-    "emailAlreadyExists": "Este e-mail já está cadastrado. Use um e-mail diferente ou tente fazer login.",
-    "requiredFields": "Nome, e-mail e senha são obrigatórios.",
-    "networkError": "Ocorreu um erro de rede.",
-    "accountCreated": "Conta criada com sucesso! Você será redirecionado para o login.",
-    "genericError": "Ocorreu um erro."
   }
 }

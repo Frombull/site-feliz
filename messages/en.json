@@ -5,10 +5,7 @@
       "projects": "Projects",
       "skills": "Skills",
       "education": "Education",
-      "contact": "Contact",
-      "login": "Login",
-      "logout": "Logout",
-      "profile": "Profile"
+      "contact": "Contact"
     },
     "HomePage": {
       "title": "Marco Di Toro",
@@ -96,140 +93,90 @@
     },
     "PrivacyPolicy": {
       "title": "Privacy Policy",
-      "introduction": "This Privacy Policy describes how your personal information is collected, used, and shared when you visit this website.",
+      "introduction": "This is a personal portfolio website created to showcase my resume and professional projects.",
       "informationWeCollect": {
         "title": "Information We Collect",
-        "p1": "As this is a simple portfolio website, we do not actively collect personal information from visitors. We may collect non-personal information that your browser sends, such as your IP address, browser type, and the pages you visit."
+        "p1": "This website does not collect, store, or process any personal information from visitors. There are no contact forms, login systems, or any data collection mechanisms."
       },
       "howWeUseYourInformation": {
-        "title": "How We Use Your Information",
-        "p1": "Any non-personal information collected is used solely for the purpose of analyzing website traffic and improving the user experience. We do not sell or share this information with third parties."
+        "title": "Browsing",
+        "p1": "You can freely browse this website without providing any personal information. All information displayed is public and related to my professional profile."
       },
       "cookies": {
         "title": "Cookies",
-        "p1": "We use cookies to enhance your experience. You can choose to disable cookies through your browser settings, but this may affect the functionality of the site."
+        "p1": "This website uses only essential cookies for basic functionality, such as language preference and theme (light/dark mode). These cookies are stored locally in your browser and are not shared with third parties."
       },
       "thirdPartyServices": {
         "title": "Third-Party Services",
-        "p1": "This website does not use third-party services that collect personal information."
+        "p1": "This website does not use third-party services for analytics, tracking, or advertising. There is no integration with Google Analytics, Facebook Pixel, or similar services."
       },
       "security": {
         "title": "Security",
-        "p1": "We take reasonable precautions to protect your information. However, no method of transmission over the Internet is 100% secure."
+        "p1": "Since we do not collect personal data, there are no risks related to storage or leakage of visitor information."
       },
       "changesToThisPolicy": {
         "title": "Changes to This Policy",
-        "p1": "We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page."
+        "p1": "This policy may be updated occasionally. Any changes will be posted on this page."
       },
       "contactUs": {
         "title": "Contact Us",
-        "p1": "If you have any questions about this Privacy Policy, please contact me."
+        "p1": "If you have any questions about this Privacy Policy, you can contact me through the information available in the contact section of the website."
       }
     },
     "TermsOfService": {
       "title": "Terms of Service",
-      "introduction": "By accessing this website, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws.",
+      "introduction": "This is a personal portfolio website with public access. By accessing this website, you agree to the following terms.",
       "useOfWebsite": {
         "title": "Use of the Website",
-        "p1": "This website is for your personal and non-commercial use. You may not modify, copy, distribute, transmit, display, perform, reproduce, publish, license, create derivative works from, transfer, or sell any information obtained from this site."
+        "p1": "This website is made available free of charge for informational purposes. You can view and browse the content freely. The content presented is solely intended to demonstrate my professional experience and projects."
       },
       "intellectualProperty": {
         "title": "Intellectual Property",
-        "p1": "All content on this site, including text, graphics, logos, and images, is the property of the website owner and is protected by intellectual property laws."
+        "p1": "The content of this website, including text, images, and design, is my own work. Projects and work mentioned may have shared rights with companies or institutions where they were developed."
       },
       "disclaimer": {
         "title": "Disclaimer",
-        "p1": "The materials on this website are provided on an 'as is' basis. The website owner makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties."
+        "p1": "The information on this website is provided 'as is' for informational purposes. While I strive to keep the information up-to-date and accurate, I make no warranties about the completeness or accuracy of the content."
       },
       "limitationOfLiability": {
         "title": "Limitation of Liability",
-        "p1": "In no event shall the website owner be liable for any damages arising out of the use or inability to use the materials on this website."
+        "p1": "This website is only an informational portfolio. I am not responsible for any decisions made based on the information presented here."
       },
       "governingLaw": {
         "title": "Governing Law",
-        "p1": "These terms and conditions are governed by and construed in accordance with the laws of the website owner's jurisdiction, and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location."
+        "p1": "These terms are governed by Brazilian law."
       },
       "changesToTheseTerms": {
         "title": "Changes to These Terms",
-        "p1": "The website owner may revise these terms of service for its website at any time without notice."
+        "p1": "These terms may be updated occasionally. Changes will be posted on this page."
       },
       "contactUs": {
         "title": "Contact Us",
-        "p1": "If you have any questions about these Terms of Service, please contact me."
+        "p1": "If you have any questions about these Terms of Service, you can contact me through the information available in the contact section of the website."
       }
     },
     "CookiesPolicy": {
       "title": "Cookies Policy",
-      "introduction": "This Cookies Policy explains what cookies are and how we use them on this website.",
+      "introduction": "This Cookies Policy explains how this website uses cookies to improve your browsing experience.",
       "whatAreCookies": {
         "title": "What Are Cookies?",
-        "p1": "Cookies are small text files that are placed on your computer or mobile device when you visit a website. They are widely used to make websites work more efficiently and to provide information to the site owners."
+        "p1": "Cookies are small text files stored in your browser when you visit a website. They allow the website to remember your preferences and settings."
       },
       "howWeUseCookies": {
         "title": "How We Use Cookies",
-        "p1": "We use cookies to improve the user experience on our site. For example, we use cookies to remember your language preference. We do not use cookies for tracking or advertising purposes."
+        "p1": "This website uses only essential cookies stored locally in your browser to: (1) Remember your language preference (Portuguese or English), (2) Remember your theme preference (light or dark mode). These cookies do not track your activity, do not collect personal data, and are not shared with third parties."
       },
       "managingCookies": {
         "title": "Managing Cookies",
-        "p1": "You can control and/or delete cookies as you wish. You can delete all cookies that are already on your computer and you can set most browsers to prevent them from being placed. If you do this, however, you may have to manually adjust some preferences every time you visit a site and some services and functionalities may not work."
+        "p1": "You can clear your browser cookies at any time through your settings. If you disable cookies, your language and theme preferences will not be saved between visits to the website."
       },
       "changesToThisPolicy": {
         "title": "Changes to This Policy",
-        "p1": "We may update our Cookies Policy from time to time. We will notify you of any changes by posting the new Cookies Policy on this page."
+        "p1": "This policy may be updated occasionally. Changes will be posted on this page."
       },
       "contactUs": {
         "title": "Contact Us",
-        "p1": "If you have any questions about our use of cookies, please contact me."
+        "p1": "If you have any questions about the use of cookies on this website, you can contact me through the information available in the contact section."
       }
-    },
-    "Profile": {
-      "title": "My Profile",
-      "name": "Name",
-      "nameLabel": "Name",
-      "namePlaceholder": "Enter your name",
-      "emailLabel": "Email",
-      "emailPlaceholder": "Enter your email address",
-      "image": "Profile Picture",
-      "imageTypeError": "Invalid image type. Please select a PNG, JPG, or WEBP file.",
-      "imageSizeError": "Image size is too large. Please select a file under 1MB.",
-      "save": "Save Changes",
-      "saving": "Saving...",
-      "loading": "Loading..."
-    },
-    "LoginPage": {
-      "title": "Login",
-      "emailLabel": "E-mail",
-      "passwordLabel": "Password",
-      "emailPlaceholder": "E-mail",
-      "passwordPlaceholder": "Password",
-      "loginButton": "Login",
-      "loading": "Loading...",
-      "forgotPassword": "Forgot password?",
-      "createAccount": "Create an account",
-      "backToHome": "Back to Home",
-      "continueWithGoogle": "Continue with Google",
-      "invalidCredentials": "Invalid credentials. Please check your email and password.",
-      "or": "or"
-    },
-    "SignupPage": {
-      "title": "Create Account",
-      "nameLabel": "Name",
-      "namePlaceholder": "Username",
-      "emailLabel": "E-mail",
-      "emailPlaceholder": "E-mail",
-      "passwordLabel": "Password",
-      "passwordPlaceholder": "Password",
-      "confirmPasswordLabel": "Confirm Password",
-      "confirmPasswordPlaceholder": "Confirm Password",
-      "signupButton": "Create Account",
-      "loading": "Creating...",
-      "alreadyHaveAccount": "Already have an account? Sign in",
-      "backToHome": "Back to Home",
-      "passwordMismatch": "Passwords do not match.",
-      "emailAlreadyExists": "This email is already registered. Please use a different email or try logging in.",
-      "requiredFields": "Name, email and password are required.",
-      "networkError": "A network error occurred.",
-      "accountCreated": "Account created successfully! You will be redirected to login.",
-      "genericError": "An error occurred."
     }
   }
