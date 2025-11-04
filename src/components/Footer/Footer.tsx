@@ -45,7 +45,6 @@ export function Footer() {
             <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row justify-between items-center text-sm">
               <p className="text-gray-500 dark:text-gray-400 text-center sm:text-left mb-4 sm:mb-0">
                 {t('developedWith')} <br/>
-                &copy; {new Date().getFullYear()} Marco Di Toro. {t('copyright')}
               </p>
 
               <div className="flex gap-4">
