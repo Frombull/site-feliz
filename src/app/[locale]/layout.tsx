@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: 'Marco Di Toro',
     images: [
       {
-        url: '/profile_picture.png',
+        url: '/profile_picture.jpg',
         width: 1200,
         height: 630,
         alt: 'Marco Di Toro',

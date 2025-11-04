@@ -131,13 +131,13 @@ export default function Home() {
       <main className="container mx-auto p-4 pt-24 md:pt-24 md:px-8">
         {/* --- Header --- */}
         <header className="text-center mb-12 animate-fade-in">
-            <div className="w-32 h-32 rounded-full mx-auto mb-6 shadow-lg bg-gradient-to-tr from-blue-400 to-purple-500 hover:scale-105 transition-transform duration-300">
+            <div className="w-42 h-42 rounded-full mx-auto mb-4 shadow-lg bg-gradient-to-tr from-blue-400 to-purple-500 hover:scale-105 transition-transform duration-300">
             <Image 
-                src="/profile_picture.png" 
+                src="/profile_picture.jpg" 
                 alt={t('profilePictureAlt')}
                 width={256}
                 height={256}
-                className="w-full h-full rounded-full object-cover border-4 border-white dark:border-gray-800"
+                className="w-full h-full rounded-full object-cover border-2 border-white dark:border-gray-600"
             />
             </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800 dark:text-white mb-2">
