@@ -12,8 +12,8 @@
       "subtitle": "Telecommunications Technician | Software Engineer",
       "profilePictureAlt": "Profile Picture",
       "aboutMe": "About Me",
-      "aboutMeP1": "I am a telecommunications technician, passionate about software development. I am always acquiring knowledge in different areas and applying this learning in my personal projects.",
-      "aboutMeP2": "Currently, I am looking for an internship through Inatel to gain more experience in the job market and to be hired as a software engineer.",
+      "aboutMeP1": "Telecommunications Technician passionate about software development. I am proactive, continuously learning new technologies and applying that knowledge to my personal projects.",
+      "aboutMeP2": "Currently, I am seeking a position as a Software Engineer (Junior/Mid-level) to actively contribute to the development of innovative solutions.",
       "professionalExperience": "Professional Experience",
       "projects": "Projects",
       "interestsAndSkills": "Interests & Skills",
@@ -33,8 +33,8 @@
         "description": "Worked with AWS microservices and Python, implementing solutions with Lambda, SNS, SQS, S3, Cloudfront, among others. Acquired knowledge about agile methodologies (Scrum) while participating in an international team. Gained extensive hands-on experience, providing me with a solid understanding of software development in an agile professional environment."
       },
       "project1": {
-        "title": "FETIN 2025: Pixelforge",
-        "description": "An educational website for Linear Algebra and Computer Graphics students to visualize concepts seen in class in a practical and interactive way."
+        "title": "Pixelforge",
+        "description": "Web platform built with Next.js and p5.js to help engineering professors demonstrate interactive simulations of practical concepts such as pathfinding (A*), flocking, computer graphics, multimedia (FFT), and matrix transformations. The project won 1st place at the FETIN science fair and later became my undergraduate thesis."
       },
       "project2": {
         "title": "PROJETE VRTL 2020: Quality control with machine learning",
@@ -47,6 +47,10 @@
       "project4": {
         "title": "PROJETE 2018: Automatic gate with wi-fi",
         "description": "1st year technical project. Garage door, capable of automatically opening and closing when detecting the user's presence on their local wi-fi network."
+      },
+      "project5": {
+        "title": "Groovetree",
+        "description": "Web platform built with Next.js and PostgreSQL (via Supabase) that allows musicians and artists to create customizable pages to share their music, links, and events. It features OAuth authentication and data management through Prisma ORM, supporting embedded players and full layout and style customization."
       },
       "skills": {
         "frontend": "Frontend",

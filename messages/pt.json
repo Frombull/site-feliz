@@ -12,8 +12,8 @@
     "subtitle": "Técnico em Telecomunicações | Engenheiro de Software",
     "profilePictureAlt": "Foto de Perfil",
     "aboutMe": "Sobre Mim",
-    "aboutMeP1": "Sou técnico em telecomunicações, apaixonado por desenvolvimento de software. Estou sempre adquirindo conhecimento em diversas áreas e aplicando esse aprendizado em meus projetos pessoais.",
-    "aboutMeP2": "Atualmente, procuro vaga como estagiário pelo Inatel, para adquirir mais experiência no mercado de trabalho e ser efetivado como engenheiro de software.",
+    "aboutMeP1": "Técnico em telecomunicações com paixão por desenvolvimento de software. Tenho um perfil proativo, sempre adquirindo conhecimento em novas tecnologias e aplicando esse aprendizado em projetos pessoais.",
+    "aboutMeP2": "Atualmente, busco uma oportunidade de contratação como Engenheiro de Software (Júnior/Pleno) para contribuir ativamente para o desenvolvimento de soluções inovadoras.",
     "professionalExperience": "Experiência Profissional",
     "projects": "Projetos",
     "interestsAndSkills": "Interesses & Skills",
@@ -33,8 +33,8 @@
       "description": "Trabalhei com microsserviços da AWS e Python, implementando soluções com Lambda, SNS, SQS, S3, Cloudfront, entre outros. Adquiri conhecimentos sobre metodologias ágeis (Scrum) enquanto participava de um time internacional. Obtive muita experiência prática, me proporcionando uma compreensão sólida do desenvolvimento de software em um ambiente profissional ágil."
     },
     "project1": {
-      "title": "FETIN 2025: Pixelforge",
-      "description": "Um site educacional para alunos de Álgebra Linear e Computação Gráfica visualizarem conceitos vistos em sala de aula de forma prática e interativa."
+      "title": "Pixelforge",
+      "description": "Plataforma web desenvolvida com Next.js e p5.js para auxiliar professores da faculdade de engenharia na demonstração de conceitos práticos em sala de aula, como algoritmos de busca (A*), flocking, computação gráfica, multimídia (FFT) e transformações matriciais. O projeto conquistou o 1º lugar na feira de ciências FETIN e evoluiu para o Trabalho de Conclusão de Curso (TCC)."
     },
     "project2": {
       "title": "PROJETE VRTL 2020: Quality control with machine learning",
@@ -47,6 +47,10 @@
     "project4": {
       "title": "PROJETE 2018: Portão automático com wi-fi",
       "description": "Projeto do 1.º ano técnico. Portão de garagem, capaz de abrir e fechar automaticamente ao detectar a presença do usuário em sua rede wi-fi local."
+    },
+    "project5": {
+      "title": "Groovetree",
+      "description": "Plataforma web desenvolvida com Next.js e PostgreSQL (via Supabase) que permite a músicos e artistas criar páginas personalizáveis para divulgar músicas, links e eventos. O sistema utiliza autenticação OAuth e gerenciamento de dados com Prisma ORM, oferecendo suporte a embeds de players e customização de layout e estilo."
     },
     "skills": {
       "frontend": "Frontend",
