@@ -9,7 +9,7 @@
     },
     "HomePage": {
       "title": "Marco Di Toro",
-      "subtitle": "Telecommunications Technician | Software Engineer",
+      "subtitle": "Full Stack Developer | 4 years experience | Software Engineer | Telecommunications Technician",
       "profilePictureAlt": "Profile Picture",
       "aboutMe": "About Me",
       "aboutMeP1": "Telecommunications Technician passionate about software development. I am proactive, continuously learning new technologies and applying that knowledge to my personal projects.",
@@ -21,10 +21,10 @@
       "contact": "Contact",
       "linkedin": "LinkedIn",
       "experience1": {
-        "role": "Intern",
+        "role": "Fullstack developer",
         "company": "Centro de Pesquisas Avançadas Wernher von Braun",
         "duration": "04/2025 - Current",
-        "description": "Full-stack development using ABP framework with C#. Responsible for creating front-end components with Blazor and Blazorise, and developing APIs and back-end logic. Using SQL Server for database management and Postman for API testing."
+        "description": "Full-stack developer experienced in C# and the ABP framework. During my time at VBL, I worked on applications using Blazor and Blazorise for the front end, C# and ABP for the back end, and developed REST APIs. Used SQL Server for data persistence and Postman for API testing and validation."
       },
       "experience2": {
         "role": "Intern",
@@ -73,7 +73,7 @@
         "title": "Contact",
         "subtitle": "Let's work together!",
         "description": "I am always open to new opportunities and interesting projects. Contact me through any of the channels below.",
-        "downloadTitle": "Resume Download",
+        "downloadTitle": "Download my resume",
         "downloadDescription": "Download a PDF version of my resume for future reference.",
         "downloadButton": "Download (PDF)"
       },

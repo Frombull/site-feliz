@@ -9,7 +9,7 @@
   },
   "HomePage": {
     "title": "Marco Di Toro",
-    "subtitle": "Técnico em Telecomunicações | Engenheiro de Software",
+    "subtitle": "Desenvolvedor Full-Stack | 4 anos de experiência | Engenheiro de Software | Técnico em Telecomunicações ",
     "profilePictureAlt": "Foto de Perfil",
     "aboutMe": "Sobre Mim",
     "aboutMeP1": "Técnico em telecomunicações com paixão por desenvolvimento de software. Tenho um perfil proativo, sempre adquirindo conhecimento em novas tecnologias e aplicando esse aprendizado em projetos pessoais.",
@@ -21,10 +21,10 @@
     "contact": "Contato",
     "linkedin": "LinkedIn",
     "experience1": {
-      "role": "Estagiário",
+      "role": "Desenvolvedor de software full-stack",
       "company": "Centro de Pesquisas Avançadas Wernher von Braun",
       "duration": "04/2025 - Atual",
-      "description": "Desenvolvimento full-stack utilizando o framework ABP com C#. Responsável pela criação de componentes de front-end com Blazor e Blazorise, e pelo desenvolvimento de APIs e lógica de back-end. Utilização de SQL Server para gerenciamento de banco de dados e Postman para testes de API."
+      "description": "Desenvolvedor full-stack com experiência em C# e framework ABP. Durante meu período na VBL, atuei no desenvolvimento de aplicações utilizando Blazor e Blazorise no front-end, C# e ABP no back-end, além da criação e integração de APIs REST. Utilizei SQL Server para persistência de dados e Postman para testes e validação de endpoints."
     },
     "experience2": {
       "role": "Estagiário",
@@ -73,7 +73,7 @@
       "title": "Contato",
       "subtitle": "Vamos trabalhar juntos!",
       "description": "Estou sempre aberto a novas oportunidades e projetos interessantes. Entre em contato comigo através de qualquer um dos canais abaixo.",
-      "downloadTitle": "Baixe meu currículo!",
+      "downloadTitle": "Baixe meu currículo",
       "downloadDescription": "Baixe uma versão em PDF de meu currículo para referências futuras.",
       "downloadButton": "Download (PDF)"
     },

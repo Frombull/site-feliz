@@ -24,33 +24,43 @@ const SectionCard = ({ title, icon, children, id }) => (
   </div>
 );
 
-const ProjectCard = ({ title, description, logo, githubUrl, demoUrl }) => (
-  <div className="flex items-start gap-4 p-4 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800 hover:shadow-md transition-all duration-300 group">
-    {logo && <img src={logo} alt={`${title} logo`} className="w-14 h-14 rounded-md object-contain bg-white shadow-sm" />}
-    <div className="flex-1">
-      <div className="flex items-start justify-between">
-        <div>
-          <h3 className="font-bold text-md text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">{title}</h3>
-          <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{description}</p>
-        </div>
-        <div className="flex gap-2 ml-4">
-          {githubUrl && (
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer"
-              className="p-1.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors">
-              <Github size={16} />
-            </a>
-          )}
-          {demoUrl && (
-            <a href={demoUrl} target="_blank" rel="noopener noreferrer"
-              className="p-1.5 text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-              <ExternalLink size={16} />
-            </a>
-          )}
+const ProjectCard = ({ title, description, logo, githubUrl, demoUrl }) => {
+  const projectUrl = demoUrl || githubUrl;
+
+  return (
+    <div className="flex items-start gap-4 p-4 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800 hover:shadow-md transition-all duration-300 group">
+      {logo && <img src={logo} alt={`${title} logo`} className="w-14 h-14 rounded-md object-contain bg-white shadow-sm" />}
+      <div className="flex-1">
+        <div className="flex items-start justify-between">
+          <div>
+            {projectUrl ? (
+              <a href={projectUrl} target="_blank" rel="noopener noreferrer">
+                <h3 className="font-bold text-md text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors hover:underline">{title}</h3>
+              </a>
+            ) : (
+              <h3 className="font-bold text-md text-blue-600 dark:text-blue-400 transition-colors">{title}</h3>
+            )}
+            <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{description}</p>
+          </div>
+          <div className="flex gap-2 ml-4">
+            {githubUrl && (
+              <a href={githubUrl} target="_blank" rel="noopener noreferrer"
+                className="p-1.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors">
+                <Github size={16} />
+              </a>
+            )}
+            {demoUrl && (
+              <a href={demoUrl} target="_blank" rel="noopener noreferrer"
+                className="p-1.5 text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <ExternalLink size={16} />
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const ExperienceCard = ({ role, company, duration, description, logo }) => (
   <div className="flex items-start gap-4 p-4 border border-gray-200 dark:border-gray-700 rounded-lg bg-gray-50 dark:bg-gray-800 hover:shadow-md transition-all duration-300">
@@ -311,10 +321,10 @@ export default function Home() {
 
             {/* --- LinkedIn QR Code --- */}
             <SectionCard title={t('linkedin')} icon={<Linkedin className="text-blue-500" />} id="linkedin">
-              <div className="flex justify-center p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+              <div className="flex justify-center p-2 rounded-lg">
                 <a href="https://linkedin.com/in/marcoditoro" target="_blank" rel="noopener noreferrer" title={t('linkedinQRCodeTitle')}>
                   <img
-                    src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://linkedin.com/in/marcoditoro"
+                    src="/qrcode/qr-code.svg"
                     alt={t('linkedinQRCodeAlt')}
                     className="rounded-lg shadow-md w-36 h-36 hover:scale-105 transition-transform duration-300"
                   />
@@ -324,7 +334,10 @@ export default function Home() {
 
             {/* --- Download Resume --- */}
             <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg animate-fade-in-up">
-              <h4 className="font-semibold text-gray-800 dark:text-white mb-4">{t('contactSection.downloadTitle')}</h4>
+              <h4 className="font-semibold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+                <Download className="text-blue-500" size={20} />
+                {t('contactSection.downloadTitle')}
+              </h4>
               <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
                 {t('contactSection.downloadDescription')}
               </p>
